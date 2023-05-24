@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Calories</title>
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body style="background: rgb(67, 67, 67);">
+
+    <header>
+        <h1 id="Title">Nutrition Tracker</h1>
+        <h2 id="date">date</h2>
+        <h2 id="time">time</h2>
+    </header>
+    
+    <main id="Container_Main">
+        <section id="Area_input" >
+            <h1 class="tempLable">Input Area</h1>
+       
+        </section>
+        
+        <Section id="NutritionInfo">
+            <h1 class="tempLable">Nutrition Info</h1>
+        </Section>
+    
+    </main>
+
+    <section id="weekSchedule">
+        <div class="daysContainBox" id="day1">
+            <h3 class="TitleHead" >Sunday</h3>
+            <div class="meal" id="breakfast">
+                <h3 class="mealLabel">breakfast</h3>
+                <div class="contain_row">
+                    <div class="tolalmealcal"></div>
+
+                </div>
+            </div>
+            <div class="meal" id="lunch">lunch</div>
+            <div class="meal" id="dinner">dinner</div>
+        </div>
+        <div class="daysContainBox" id="day2"></div>
+        <div class="daysContainBox" id="day3"></div>
+        <div class="daysContainBox" id="day4"></div>
+        <div class="daysContainBox" id="day5"></div>
+        <div class="daysContainBox" id="day6"></div>
+        <div class="daysContainBox" id="day7"></div>
+    </section>
+
+    <section id="lineGraph">
+
+        <h1 class="tempLable">lineGraph</h1>
+
+    </section>
+
+
+    
+
+    
+    
+    
+      
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>   
+    <script src="./assets/foodScript.js"></script>
+</body>
+</html>

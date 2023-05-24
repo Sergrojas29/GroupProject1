@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: black;  
+
+}
+
+:root{
+    --MainContainHeight: 400px;
+    --WeekSchedule: 400px;
+    --BGColo: white;
+    --UnivBorder: 15px;
+}
+
+.tempLable{
+    text-align: center;
+    align-self: center;
+    margin: 0 auto;
+    font-size: 36pt;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2vw;
+    margin: 0 auto;
+    font-size: 2vw;
+    line-height: normal;
+}
+
+#Container_Main{
+    border: solid 1pt red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--MainContainHeight);
+
+}
+#Area_input{
+    display: flex;
+    height: 100%;
+    width: 30%;
+    border: solid 1pt blue;
+}
+
+#NutritionInfo{
+    display: flex;
+    height: 100%;
+    width: 40%;
+    border: solid 1pt yellow;
+}
+
+#weekSchedule{
+    display: flex;
+    justify-content: space-evenly;
+    height: 300px;
+    border: solid 1pt purple;
+
+}
+.daysContainBox{
+    background: var(--BGColo);
+    height: 100%;
+    width: 14%;
+    border-radius: var(--UnivBorder);
+    overflow: hidden;
+
+}
+
+.TitleHead{
+    text-align: center;
+    font-size: 23pt;
+    background-color: lightblue;
+    height: 15%;
+    padding-bottom: 5px;
+}
+.meal{
+    height: 28%;
+    border: solid 1pt gray;
+}
+#lineGraph{
+    display: flex;
+    height: 300px;
+    border: solid 1pt green;
+
+}
