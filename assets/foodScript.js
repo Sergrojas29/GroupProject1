@@ -34,8 +34,6 @@ var dailyMeal =  {
     todayHour = Number(dayjs().format('HH'));
     var date = document.querySelector('#date')
     var time = document.querySelector('#time')
-    date.innerText = today.format('MMM DD, YYYY')
-    time.innerText = today.format('hh:mm A')
      return todayHour
  }
  setDate()
@@ -231,22 +229,3 @@ function weekCalories() {
 
 
 
-const ctx = document.getElementById('myChart');
-new Chart(ctx, {
-  type: 'pie',
-  data: {
-    labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-    datasets: [{
-      label: '# of Calories',
-      data: [1200, 1900, 1300, 1400, 1500, 0],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  }
-});

@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: black;  
+    font-family: 'Outfit', sans-serif;  
 
 }
 
@@ -11,13 +11,21 @@
     --WeekSchedule: 400px;
     --BGColo: white;
     --UnivBorder: 15px;
+
+    --headerColor: #a7e8d2;
+    --headerColorSecond:#379583;
+    --headerColorThird:#8de2d25c;
+    --accent: #fca264;
+    --color1: #a0c365;
+    --color2: #74A763 ;
+    --color3: #478a61 ;
+
+ 
+
 }
 
-.tempLable{
-    text-align: center;
-    align-self: center;
-    margin: 0 auto;
-    font-size: 36pt;
+body{
+    background-color: var(--headerColorThird);
 }
 
 header{
@@ -27,37 +35,138 @@ header{
     align-items: center;
     padding: 2vw;
     margin: 0 auto;
-    font-size: 2vw;
     line-height: normal;
+    background: var(--headerColor);
+    box-shadow: 0px 0px 15px rgb(50, 50, 50);
+
+}
+#Title{
+    background: var(--headerColorSecond);
+    
+    border-radius: 86% 14% 81% 19% / 36% 72% 28% 64% ;
+    font-size: 80pt;
+    font-family: 'Satisfy', cursive;
+    
 }
 
 #Container_Main{
-    border: solid 1pt red;
     display: flex;
     justify-content: center;
     align-items: center;
     height: var(--MainContainHeight);
+    margin: 0 auto;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    width: 2000px;
+}
 
+.cardContainer{
+    border-radius: calc( 2 * var(--UnivBorder));
+    overflow: hidden;
+    background-color: var(--BGColo);
+    
 }
 #Area_input{
     display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 40%;
+    margin-right: 30px;
+    box-shadow: 0px 0px 15px darkgray;
+}
+
+#CardTitleArea{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 20%;
+    justify-content:center;
+    align-content: center;
+    align-items: center;
+    padding: 10px 0;
+    background-color: var(--headerColor);
+    box-shadow: 0px 0px 15px darkgray;
+}
+.cardtitlestyle{
+    font-family: 'Satisfy', cursive;
+    font-size: 36pt;
+    font-weight: 800;
+    
+}
+
+.inputSection{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+#sectionArea{
+    justify-content: center;
+    width: 70%;
+
+    display: flex;
+    height: 80%;
+    /* border: solid 1pt red; */
+}
+
+#inputTextArea{
+    /* background-color: var(--accent); */
+    color: white;
+    font-size: 26pt;
+    border-radius: var(--UnivBorder);
+    border: none;
+    padding: 15px;
+    box-shadow: 0px 0px 15px darkgray;
+}
+
+#buttonArea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    /* border: solid 1pt blue;  */
     height: 100%;
     width: 30%;
-    border: solid 1pt blue;
+}
+button{
+    cursor: pointer;
+    width: 150px;
+    height: 80px;
+    border: none;
+    border-radius: var(--UnivBorder);
+    box-shadow: 0px 0px 15px darkgray;
+}
+
+button:hover {
+    box-shadow: inset 0px 0px 15px 5px white;
+    background-color: #fca264;
+}
+
+#breafastbtn{
+    background-color: var(--color1);
+}
+#lunchbtn{
+    background-color: var(--color2);
+    
+}
+#dinnerbtn{
+    background-color: var(--color3);
+
 }
 
 #NutritionInfo{
     display: flex;
     height: 100%;
-    width: 40%;
-    border: solid 1pt yellow;
+    width: 60%;
+    box-shadow: 0px 0px 15px 0px darkgray;
 }
 
 #weekSchedule{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     height: 300px;
-    border: solid 1pt purple;
+    width: 2000px;
+    margin: 0 auto;
+    margin-bottom: 30px;
 
 }
 .daysContainBox{
@@ -66,23 +175,69 @@ header{
     width: 14%;
     border-radius: var(--UnivBorder);
     overflow: hidden;
+    font-size: 26pt;
+    box-shadow: 0px 0px 15px 0px darkgray;
 
 }
 
 .TitleHead{
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 23pt;
-    background-color: lightblue;
-    height: 15%;
-    padding-bottom: 5px;
+    background-color: var(--headerColor);
+    padding-top: 10px;
+    box-shadow: 0px 0px 15px darkgray;
 }
+
+.mealsContain{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 50%;
+}
+
 .meal{
-    height: 28%;
-    border: solid 1pt gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100% / 3);
+    height: 100%;
+    
 }
+.dayMealTitle{
+    padding-bottom: 5px;
+    
+    /* background-color: var(--headerColor); */
+    text-align: center;
+    width: 100%;
+}
+.mealcalContainer{
+    border-left: solid 1.5pt var(--headerColorSecond);
+    border-right: solid 1.5pt var(--headerColorSecond);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.mealtotal{
+    text-align: center;
+    /* border-top: solid 3pt var(--accent); */
+
+}
+
+
+
+
+
+
 #lineGraph{
     display: flex;
+    margin: 0 auto;
+    border-radius: calc(2 * var(--UnivBorder));
+    justify-content: center;
+    width: 2000px;
     height: 300px;
-    border: solid 1pt green;
+    border: solid 10pt red;
 
 }
