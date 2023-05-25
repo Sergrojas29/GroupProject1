@@ -32,7 +32,9 @@ function processFood(data){
     console.log(mealCalories)
     
   }
+  
   console.log(Meal)
+  $(".inputTextArea").val(Meal)
   console.log("Meal Calories: " + mealCalories)
   
 }
