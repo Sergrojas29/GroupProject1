@@ -8,3 +8,5 @@ function dayOftheWeek() {
     return  day
  }
  dayOftheWeek()
+
+
