@@ -30,7 +30,7 @@ function processFood(data){
     //Add each meal to the nutrition total
     Meal.push( data.items[index])
     console.log(mealCalories)
-    
+    saveCalories()
   }
   
   console.log(Meal)
