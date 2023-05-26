@@ -61,6 +61,8 @@ header{
 }
 
 .cardContainer{
+    display: flex;
+    flex-direction: column;
     border-radius: calc( 2 * var(--UnivBorder));
     overflow: hidden;
     background-color: var(--BGColo);
@@ -160,6 +162,47 @@ button:hover {
     box-shadow: 0px 0px 15px 0px darkgray;
 }
 
+.nutritionContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#CalContain, #infoContain1, #infoContain2{
+    display: flex;
+    flex-direction: column;
+    /* border: solid red ; */
+    height: 100%;
+    width: calc(100% / 3);
+
+}
+#CalContain{
+    font-size: 38pt;
+    font-weight: 700;
+    margin:auto 10px ;
+}
+
+
+#NutrTitle, #calories{
+    border-bottom: solid 10pt #81818168;
+}
+#Ingredients{
+    color: #4c4c4c;
+    font-size: x-large;
+}
+
+#infoContain1{
+    font-size: 20pt;
+    margin-left: 5px;
+}
+.nutLable_bold{
+    font-weight: 700;
+}
+.nutLable_reg{
+    margin-left: 50px;
+}
 #weekSchedule{
     display: flex;
     justify-content: space-between;

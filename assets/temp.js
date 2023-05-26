@@ -10,3 +10,19 @@ function dayOftheWeek() {
  dayOftheWeek()
 
 
+function nutritionInfo(object){
+    for (const [key, value] of Object.entries(items1)) {
+        const nutritionContainer = document.querySelector('.nutritionContainer')
+        var divEl = document.createElement('div')
+        divEl.setAttribute('id', key )
+        nutritionContainer.appendChild(divEl)
+        divEl.textContent = value
+        console.log(`${key}: ${value}`);
+    }
+    const removeName = document.querySelector('#name')
+
+    removeName.remove()
+}
+
+// nutritionInfo(items1)
+

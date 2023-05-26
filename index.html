@@ -24,7 +24,7 @@
         <h1 id="Title">Nutrition Tracker</h1>
         <h2 id="slogan">Stop being fat</h2>
     </header>
-    
+
 
     <main id="Container_Main">
         <section id="Area_input" class="cardContainer">
@@ -49,8 +49,85 @@
         <Section id="NutritionInfo" class="cardContainer">
             <div id="CardTitleArea">
                 <div class="cardtitlestyle">Nutrition Info</div>
+            </div>
+            <div class="nutritionContainer">
                 <div class="nutritionContainer">
-                    
+                    <div id="CalContain">
+                        <h4 id="NutrTitle">Nutrition Facts</h4>
+                        <h6>Amount Per Serving</h6>
+                        <h4>Calories</h4>
+                        <div id="calories">477.8</div>
+                        <div style="font-size: x-large;">Ingredients:</div>
+                        <div id="Ingredients">carrots</div>
+                    </div>
+
+                    <div id="infoContain1">
+                        <div class="nutlablesection">
+                            <span class="nutLable_bold">Total Fat</span>
+                            <span id="fat_total_g">2.3</span>
+                            <span class="unit">g</span>
+                        </div>
+
+                        <div class="nutlablesection">
+                            <span class="nutLable_reg">Saturated Fat</span>
+                            <span id="fat_saturated_g">0.3</span>
+                            <span class="unit">g</span>
+                        </div>
+
+
+                        <div class="nutlablesection">
+                            <span class="nutLable_bold">Cholesterol</span>
+                            <span id="cholesterol_mg">0</span>
+                            <span class="unit">mg</span>
+                        </div>
+                        <div class="nutlablesection">
+                            <span class="nutLable_bold">Sodium</span>
+                            <span id="sodium_mg">775</span>
+                            <span class="unit">mg</span>
+                        </div>
+
+                        <div class="nutlablesection">
+                            <span class="nutLable_bold">Total Carbohydrates</span>
+                            <span id="carbohydrates_total_g">110.2</span>
+                            <span class="unit">g</span>
+                        </div>
+
+                        
+                        <div class="nutlablesection">
+                            <span class="nutLable_reg">Dietary Fiber</span>
+                            <span id="fiber_g">40.7</span>
+                            <span class="unit">g</span>
+                        </div>
+                        <div class="nutlablesection">
+                            <span class="nutLable_reg">Total Sugar</span>
+                            <span id="sugar_g">46.7</span>
+                            <span class="unit">g</span>
+                        </div>
+
+                        
+                        <div class="nutlablesection">
+                            <span class="nutLable_bold">Protein</span>
+                            <span id="protein_g">10.3</span>
+                            <span class="unit">g</span>
+                        </div>
+
+                        <div class="nutlablesection">
+                            <span class="nutLable_reg">Potassium</span>
+                            <span id="potassium_mg">410</span>
+                            <span class="unit">mg</span>
+                        </div>
+
+                        <div class="nutlablesection">
+                            <span class="nutLable_reg">Serving Size:</span>
+                            <span id="serving_size_g">1360.77</span>
+                        </div>
+                    </div>
+                    <div id="infoContian2">
+                        <h3 style="position: absolute;"> Total Daily Calories Pie Graph</h3>
+
+
+                    </div>
+
                 </div>
         </Section>
 
@@ -115,7 +192,7 @@
             <div class="mealtotal">
                 <div class="dayMealtotal">Total</div>
                 <div class="dayMealtotal">1650 CAL</div>
-            </div>            
+            </div>
         </div>
         <div class="daysContainBox" id="day3">
             <h3 class="TitleHead">TUESDAY</h3>
@@ -145,7 +222,7 @@
             <div class="mealtotal">
                 <div class="dayMealtotal">Total</div>
                 <div class="dayMealtotal">1650 CAL</div>
-            </div>            
+            </div>
         </div>
         <div class="daysContainBox" id="day4">
             <h3 class="TitleHead">WEDNESDAY</h3>
@@ -175,7 +252,7 @@
             <div class="mealtotal">
                 <div class="dayMealtotal">Total</div>
                 <div class="dayMealtotal">1650 CAL</div>
-            </div>            
+            </div>
         </div>
         <div class="daysContainBox" id="day5">
             <h3 class="TitleHead">THURSDAY</h3>
@@ -205,7 +282,7 @@
             <div class="mealtotal">
                 <div class="dayMealtotal">Total</div>
                 <div class="dayMealtotal">1650 CAL</div>
-            </div>            
+            </div>
         </div>
         <div class="daysContainBox" id="day6">
             <h3 class="TitleHead">FRIDAY</h3>
@@ -235,7 +312,7 @@
             <div class="mealtotal">
                 <div class="dayMealtotal">Total</div>
                 <div class="dayMealtotal">1650 CAL</div>
-            </div>            
+            </div>
         </div>
 
         <div class="daysContainBox" id="day7">
@@ -266,7 +343,7 @@
             <div class="mealtotal">
                 <div class="dayMealtotal">Total</div>
                 <div class="dayMealtotal">1650 CAL</div>
-            </div>            
+            </div>
         </div>
 
 
@@ -276,172 +353,180 @@
 
     <section id="lineGraph">
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!doctype html>
+        <html lang="en">
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-      }
-      .chartMenu {
-        width: 100vw;
-        height: 40px;
-        background: #1A1A1A;
-        color: rgb(102, 235, 54);
-      }
-      .chartMenu p {
-        padding: 10px;
-        font-size: 20px;
-      }
-      .chartCard {
-        width: 100vw;
-        height: calc(100vh - 40px);
-        background: rgba(54, 162, 235, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .chartBox {
-        width: 700px;
-        padding: 20px;
-        border-radius: 20px;
-        border: solid 3px rgb(235, 130, 54);
-        background: white;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="chartMenu">
-      <p> Calorie Counter (Project 1<span id="chartVersion"></span>)</p>
-    </div>
-    <div class="chartCard">
-      <div class="chartBox">
-        <canvas id="myChart"></canvas>
-        <canvas id="myChart2"></canvas>
-      </div>
-    </div>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
-    <script>
-    // setup 
-    const data = {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-      datasets: [{
-        label: 'Weekly Calories',
-        data: [
-          {x: 'Mon', y: 3000, sales: [1, 1, 1, 1, 1, 1, 1],  title:  'Monday'},
-          {x: 'Tue', y: 2643, sales: [1, 1, 1, 1, 1, 1, 2],  title: 'Tuesday'},
-          {x: 'Wed', y: 2200, sales: [1, 1, 1, 1, 1, 1, 3],  title:  'Wednesday'},
-          {x: 'Thu', y: 1380, sales: [1, 1, 1, 1, 1, 1, 4],  title:  'Thursday'},
-          {x: 'Fri', y: 3300, sales: [1, 1, 1, 1, 1, 1, 5],  title:  'Friday'},
-          {x: 'Sat', y: 1900, sales: [1, 1, 1, 1, 1, 1, 6],  title:  'Saturday'},
-          {x: 'Sun', y: 2450, sales: [1, 1, 1, 1, 1, 1, 8],  title:  'Sunday'},
-      ],
-    
-        backgroundColor: [
-          'rgba(255, 26, 104, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(0, 0, 0, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255, 26, 104, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-          'rgba(0, 0, 0, 1)'
-        ],
-        borderWidth: 1
-      }]
-    };
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    // config 
-    const config = {
-      type: 'bar',
-      data,
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    };
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    font-family: sans-serif;
+                }
 
-    // render init block
-    const ctx =document.getElementById('myChart');
-    const myChart = new Chart(
-      ctx,
-      config
-    );
+                .chartMenu {
+                    width: 100vw;
+                    height: 40px;
+                    background: #1A1A1A;
+                    color: rgb(102, 235, 54);
+                }
 
-// setup 
-const data2 = {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-      datasets: [{
-        label: 'Weekly Calories',
-        data: [18, 12, 6, 9, 12, 3, 9],
-        backgroundColor: 'rgba(0, 0, 0, 0.2)',
-        borderColor: 'rgba(0, 0, 0, 1)',
-        borderWidth: 1
-      }]
-    };
+                .chartMenu p {
+                    padding: 10px;
+                    font-size: 20px;
+                }
 
-    // config 
-    const config2 = {
-      type: 'bar',
-      data: data2,
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    };
+                .chartCard {
+                    width: 100vw;
+                    height: calc(100vh - 40px);
+                    background: rgba(54, 162, 235, 0.2);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
 
-    // render init block
-    const myChart2 = new Chart(
-      document.getElementById('myChart2'),
-      config2 
-    );
+                .chartBox {
+                    width: 300px;
+                    padding: 20px;
+                    border-radius: 20px;
+                    border: solid 3px rgb(235, 130, 54);
+                    background: white;
+                }
+            </style>
+        </head>
 
-    function clickHandler(click) {
-      const points = myChart.getElementsAtEventForMode(click, 'nearest', {
-        intersect: true }, true);
-        if(points.length){
-          console.log(points.length)
-          console.log(points[0].element.$context.raw.title);
-          console.log(points[0].element.$context.raw.sales);
+        <body>
+            <div class="chartMenu">
+                <p> Calorie Counter (Project 1<span id="chartVersion"></span>)</p>
+            </div>
+            <div class="chartCard">
+                <div class="chartBox">
+                    <canvas id="myChart"></canvas>
+                    <canvas id="myChart2"></canvas>
+                </div>
+            </div>
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+            <script>
+                // setup 
+                const data = {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{
+                        label: 'Weekly Calories',
+                        data: [
+                            { x: 'Mon', y: 3000, sales: [1, 1, 1, 1, 1, 1, 1], title: 'Monday' },
+                            { x: 'Tue', y: 2643, sales: [1, 1, 1, 1, 1, 1, 2], title: 'Tuesday' },
+                            { x: 'Wed', y: 2200, sales: [1, 1, 1, 1, 1, 1, 3], title: 'Wednesday' },
+                            { x: 'Thu', y: 1380, sales: [1, 1, 1, 1, 1, 1, 4], title: 'Thursday' },
+                            { x: 'Fri', y: 3300, sales: [1, 1, 1, 1, 1, 1, 5], title: 'Friday' },
+                            { x: 'Sat', y: 1900, sales: [1, 1, 1, 1, 1, 1, 6], title: 'Saturday' },
+                            { x: 'Sun', y: 2450, sales: [1, 1, 1, 1, 1, 1, 8], title: 'Sunday' },
+                        ],
 
-          myChart2.config.data.datasets[0].label = points[0].element.$context.raw
-          .title;
-          myChart2.config.data.datasets[0].data = points[0].element.$context.raw
-          .sales;
-          myChart2.update();
-        }
-    };
+                        backgroundColor: [
+                            'rgba(255, 26, 104, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)',
+                            'rgba(0, 0, 0, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 26, 104, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)',
+                            'rgba(0, 0, 0, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                };
 
-    ctx.onclick = clickHandler;
-</script>
-    // Instantly assign Chart.js version
-    const chartVersion = document.getElementById('chartVersion');
-    chartVersion.innerText = Chart.version;
-    </script>
+                // config 
+                const config = {
+                    type: 'bar',
+                    data,
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                };
 
-  </body>
-</html>
+                // render init block
+                const ctx = document.getElementById('myChart');
+                const myChart = new Chart(
+                    ctx,
+                    config
+                );
 
-      
+                // setup 
+                const data2 = {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{
+                        label: 'Weekly Calories',
+                        data: [18, 12, 6, 9, 12, 3, 9],
+                        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                        borderColor: 'rgba(0, 0, 0, 1)',
+                        borderWidth: 1
+                    }]
+                };
+
+                // config 
+                const config2 = {
+                    type: 'bar',
+                    data: data2,
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                };
+
+                // render init block
+                const myChart2 = new Chart(
+                    document.getElementById('myChart2'),
+                    config2
+                );
+
+                function clickHandler(click) {
+                    const points = myChart.getElementsAtEventForMode(click, 'nearest', {
+                        intersect: true
+                    }, true);
+                    if (points.length) {
+                        console.log(points.length)
+                        console.log(points[0].element.$context.raw.title);
+                        console.log(points[0].element.$context.raw.sales);
+
+                        myChart2.config.data.datasets[0].label = points[0].element.$context.raw
+                            .title;
+                        myChart2.config.data.datasets[0].data = points[0].element.$context.raw
+                            .sales;
+                        myChart2.update();
+                    }
+                };
+
+                ctx.onclick = clickHandler;
+            </script>
+            // Instantly assign Chart.js version
+            const chartVersion = document.getElementById('chartVersion');
+            chartVersion.innerText = Chart.version;
+            </script>
+
+        </body>
+
+        </html>
+
+
 
     </section>
 

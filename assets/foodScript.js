@@ -56,6 +56,7 @@ function callFood() {
     })
     .then(function (data) {
       processFood(data)
+      
     })
 };
 
