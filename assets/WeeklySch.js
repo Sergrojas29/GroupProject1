@@ -5,38 +5,38 @@ function saveCalories() {
 
 var weeklyMeal = {
     monday: {
-        breakfast: 10,
-        lunch: 20,
-        dinner: 30,
+        breakfast: breakfastCalories,
+        lunch: lunchCalories,
+        dinner: dinnerCalories,
     },
     tuesday: {
-        breakfast: 15,
-        lunch: 25,
-        dinner: 35,
+        breakfast: breakfastCalories,
+        lunch: lunchCalories,
+        dinner: dinnerCalories,
     },
     wednesday: {
-        breakfast: 40,
-        lunch: 50,
-        dinner: 60,
+        breakfast: breakfastCalories,
+        lunch: lunchCalories,
+        dinner: dinnerCalories,
     },
     thursday: {
-        breakfast: 40,
-        lunch: 50,
-        dinner: 60,
+        breakfast: breakfastCalories,
+        lunch: lunchCalories,
+        dinner: dinnerCalories,
     },
     friday: {
-        breakfast: 40,
-        lunch: 50,
-        dinner: 60,
+        breakfast: breakfastCalories,
+        lunch: lunchCalories,
+        dinner: dinnerCalories,
     },
     saturday: {
-        breakfast: 40,
-        lunch: 50,
-        dinner: 60,
+        breakfast: breakfastCalories,
+        lunch: lunchCalories,
+        dinner: dinnerCalories,
     },
     sunday: {
-        breakfast: 40,
-        lunch: 50,
-        dinner: 60,
+        breakfast: breakfastCalories,
+        lunch: lunchCalories,
+        dinner: dinnerCalories,
     }
 }
