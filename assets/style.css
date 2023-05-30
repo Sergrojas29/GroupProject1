@@ -112,7 +112,7 @@ header{
 
 #inputTextArea{
     /* background-color: var(--accent); */
-    color: white;
+    color: black;
     font-size: 26pt;
     border-radius: var(--UnivBorder);
     border: none;

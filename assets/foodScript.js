@@ -41,25 +41,24 @@ function processFood(data){
 
 
 
-// function callFood() {
-// // $('.inputTextArea').val()
-//   var query = "Carrots and a chicken sandwich"
+function callFood() {
+  var query = "Carrots and a chicken sandwich"
 
-//   fetch('https://api.calorieninjas.com/v1/nutrition?query=' + query, {
-//     headers: {
-//       'X-Api-Key': 'QoMyRTp5iThrCA1lK5JxQA==9qY9LyZsd0WiNkXu'
-//     }
-//   })
-//     .then(function (response) {
-//       localStorage.setItem('test', response)
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       processFood(data)
-//       CalculateTotalNutritionInfo(data)
+  fetch('https://api.calorieninjas.com/v1/nutrition?query=' + query, {
+    headers: {
+      'X-Api-Key': 'QoMyRTp5iThrCA1lK5JxQA==9qY9LyZsd0WiNkXu'
+    }
+  })
+    .then(function (response) {
+      localStorage.setItem('test', response)
+      return response.json();
+    })
+    .then(function (data) {
+      processFood(data)
+      CalculateTotalNutritionInfo(data)
       
-//     })
-// };
+    })
+};
 
 
 
