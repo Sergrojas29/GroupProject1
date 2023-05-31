@@ -1,10 +1,11 @@
-var todaysCalories
-var breakfastCalories
-var lunchCalories
-var dinnerCalories
-var totalCalories
-var mealCalories
-var Meal = [{}]
+let todaysCalories = 0
+let breakfastCalories = 0
+let lunchCalories = 0
+let dinnerCalories = 0
+let totalCalories = 0
+let mealCalories = 0
+var Meal = []
+
 
 var dailyMeal = {
   breakfast: breakfastCalories,
@@ -15,35 +16,102 @@ var dailyMeal = {
 }
 
 
-var breafastbtn = document.querySelector('#breafastbtn')
-
-breafastbtn.addEventListener('click', callFood, breakfastFood)
-lunchbtn.addEventListener('click', callFood, lunchFood)
-dinnerbtn.addEventListener('click', callFood, dinnerFood)
-
-function processFood(data){
-  console.log(data)
-
-  for (let index = 0; index < data.items.length; index++) {
-    //For each item in the Array, pull the calories
-    mealCalories =+ data.items[index].calories;
-    //Add each meal to the nutrition total
-    Meal.push( data.items[index])
-    console.log(mealCalories)
-    
-  }
+function dayOftheWeek(input) {
+  // var today = dayjs().set('hour', 18).set('minute', 55)
   
-  console.log(Meal)
-  $(".inputTextArea").val(Meal)
-  console.log("Meal Calories: " + mealCalories)
+  var weekArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+  var Weekday = document.querySelector('#MainDayofWeek')
+  Weekday.innerText = weekArray[input]
   
 }
 
 
 
-function callFood() {
-  var query = "Carrots and a chicken sandwich"
 
+//*Just adds header Days time and date
+function setDate() {
+  var today = dayjs();
+  day = dayjs().day()
+  todayHour = Number(dayjs().format('HH'));
+  var date = document.querySelector('#date')
+  var time = document.querySelector('#time')
+  dayOftheWeek(day)
+  
+}
+setDate()
+
+
+
+
+$('#breakfastbtn').on('click', function(){
+  callFood('breakfast')
+})
+$('#lunchbtn').on('click', function() {
+  callFood('lunch')
+})
+$('#dinnerbtn').on('click', function () {
+  callFood('dinner')
+})
+
+
+function callCalories() {
+  
+    
+  $("#day" + day).find("#breakfast").find('.mealCal').text(breakfastCalories)
+  $("#day" + day).find("#lunch").find('.mealCal').text(lunchCalories)
+  $("#day" + day).find("#dinner").find('.mealCal').text(dinnerCalories)
+  $("#day" + day).find('.dayMealtotal').text(totalCalories)
+
+}
+
+function changeDay(input) {
+  totalCalories = 0
+  breakfastCalories = 0
+  dinnerCalories = 0
+  lunchCalories = 0  
+  
+  console.log(input)
+  dayOftheWeek(input)
+}
+
+
+
+
+function breakfast(){
+  breakfastCalories = 0
+  breakfastCalories += mealCalories
+  totalCalories += breakfastCalories
+  console.log("Breakfast Calories: " + breakfastCalories)
+  callCalories()
+}
+
+function lunch() {
+  lunchCalories = 0
+  lunchCalories += mealCalories
+  totalCalories += lunchCalories
+  console.log("Lunch Calories: " + lunchCalories)
+  callCalories()
+}
+
+function dinner() {
+  dinnerCalories = 0
+  dinnerCalories += mealCalories
+  totalCalories += dinnerCalories
+  console.log("Dinner Calories: " + dinnerCalories)
+  callCalories()
+}
+
+
+
+
+
+
+
+function callFood(time) {
+
+  var query = $('#inputTextArea').val()
+console.log(JSON.stringify(time))
   fetch('https://api.calorieninjas.com/v1/nutrition?query=' + query, {
     headers: {
       'X-Api-Key': 'QoMyRTp5iThrCA1lK5JxQA==9qY9LyZsd0WiNkXu'
@@ -54,23 +122,68 @@ function callFood() {
       return response.json();
     })
     .then(function (data) {
-      processFood(data)
-      CalculateTotalNutritionInfo(data)
+      mealCalories = 0
+      Meal = []
       
+      
+      
+      
+
+      console.log(data)
+      CalculateTotalNutritionInfo(data)
+      getCalories(time)
+      Meal.push(data.items)
+        
+      for (let index = 0; index < data.items.length; index++) {
+        //For each item in the Array, pull the calories
+          var calories = Number(data.items[index].calories)
+          console.log('Calories: ' + calories)
+          mealCalories += calories
+         
+        
+        
+      }  console.log('Meal Calories: ' + mealCalories)
+        
+      //Meal.push(data.items[index])
+      console.log("Meal " + JSON.stringify(Meal))
+      console.log("Now log to meal Name")
+
+if (time == "breakfast") {
+  console.log('breakfast')
+  breakfast()
+} else if (time == "lunch") {
+  console.log('lunch')
+  lunch()
+} else if (time == "dinner") {
+  console.log('dinner')
+  dinner()
+}       
     })
+
+    
 };
 
 
 
-//*Just adds header Days time and date
-function setDate() {
-  var today = dayjs();
-  todayHour = Number(dayjs().format('HH'));
-  var date = document.querySelector('#date')
-  var time = document.querySelector('#time')
-  return todayHour
-}
-setDate()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //! data Return from calorieNinjas
 var items1 = {
@@ -103,48 +216,21 @@ var items2 = {
   sugar_g: 3.6,
 }
 
-var items3 = {
-  calories: 1804.3,
-  carbohydrates_total_g: 0,
-  cholesterol_mg: 10850,
-  fat_saturated_g: 822.8,
-  fat_total_g: 2131.4,
-  fiber_g: 0,
-  name: "steak",
-  potassium_mg: 22019,
-  protein_g: 2943.5,
-  serving_size_g: 11339.8,
-  sodium_mg: 5914,
-  sugar_g: 0,
-}
-
-var items4 = {
-  calories: 35,
-  carbohydrates_total_g: 7.3,
-  cholesterol_mg: 0,
-  fat_saturated_g: 0.1,
-  fat_total_g: 0.4,
-  fiber_g: 3.3,
-  name: "broccoli",
-  potassium_mg: 65,
-  protein_g: 2.4,
-  serving_size_g: 100,
-  sodium_mg: 41,
-  sugar_g: 1.4,
-}
 
 
-function breakfastFood(){
-  breakfastCalories =+ mealCalories
-  totalCalories =+ breakfastCalories
-}
 
-function lunchFood() {
-  lunchCalories =+ mealCalories
-  totalCalories =+ lunchCalories
-}
 
-function dinnerFood() {
-  dinnerCalories =+ mealCalories
-  totalCalories =+ dinnerCalories
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

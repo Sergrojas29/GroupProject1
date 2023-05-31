@@ -148,7 +148,7 @@ button:hover {
 
 
 
-#breafastbtn{
+#breakfastbtn{
     background-color: var(--color1);
 }
 #lunchbtn{
@@ -284,11 +284,12 @@ button:hover {
 
 #lineGraph{
     display: flex;
+    flex-direction: column;
     margin: 0 auto;
     border-radius: calc(2 * var(--UnivBorder));
-    justify-content: center;
     width: 2000px;
     height: 300px;
-    border: solid 10pt red;
+    overflow: hidden;
+    /* border: solid 10pt red; */
 
 }
