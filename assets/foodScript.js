@@ -55,25 +55,34 @@ $('#dinnerbtn').on('click', function () {
 })
 
 
-function callCalories() {
-  
-    
-  $("#day" + day).find("#breakfast").find('.mealCal').text(breakfastCalories)
-  $("#day" + day).find("#lunch").find('.mealCal').text(lunchCalories)
-  $("#day" + day).find("#dinner").find('.mealCal').text(dinnerCalories)
-  $("#day" + day).find('.dayMealtotal').text(totalCalories)
-
-}
+// function callCalories() {
+  // 
+    // 
+  // $("#day" + day).find("#breakfast").find('.mealCal').text(breakfastCalories)
+  // $("#day" + day).find("#lunch").find('.mealCal').text(lunchCalories)
+  // $("#day" + day).find("#dinner").find('.mealCal').text(dinnerCalories)
+  // $("#day" + day).find('.dayMealtotal').text(totalCalories)
+// 
+// }
 
 function changeDay(input) {
+  day = input
   totalCalories = 0
   breakfastCalories = 0
   dinnerCalories = 0
   lunchCalories = 0  
   
-  console.log(input)
-  dayOftheWeek(input)
+  
+  dayOftheWeek(day)
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -82,8 +91,8 @@ function breakfast(){
   breakfastCalories = 0
   breakfastCalories += mealCalories
   totalCalories += breakfastCalories
-  console.log("Breakfast Calories: " + breakfastCalories)
-  callCalories()
+
+  // callCalories()
 }
 
 function lunch() {
@@ -91,7 +100,7 @@ function lunch() {
   lunchCalories += mealCalories
   totalCalories += lunchCalories
   console.log("Lunch Calories: " + lunchCalories)
-  callCalories()
+  // callCalories()
 }
 
 function dinner() {
@@ -99,7 +108,7 @@ function dinner() {
   dinnerCalories += mealCalories
   totalCalories += dinnerCalories
   console.log("Dinner Calories: " + dinnerCalories)
-  callCalories()
+  // callCalories()
 }
 
 
@@ -139,7 +148,7 @@ console.log(JSON.stringify(time))
           var calories = Number(data.items[index].calories)
           console.log('Calories: ' + calories)
           mealCalories += calories
-         
+          mealCalories = Math.round(mealCalories)
         
         
       }  console.log('Meal Calories: ' + mealCalories)

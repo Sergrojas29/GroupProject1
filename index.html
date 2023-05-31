@@ -135,7 +135,50 @@
                         </div>
                     </div>
                     <div id="infoContian2">
-                        <h3 style="position: absolute;"> Total Daily Calories Pie Graph</h3>
+                        <head>
+                            <meta charest="UTF-8" />
+                            <meta name="viewport" content=""width=device-width, initial-scale="1.0" />
+                            <title>Calorie Counter Piechart</title>
+                            <style type="text/css">
+                                .chartBox {
+                                    width: 700px;
+                                }
+                            </style>
+                            </head>
+                            <body>
+                        
+                            <div class="chartBox">
+                                <canvas id="myChart3"></canvas>
+                              </div>
+                              
+                              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                              
+                              <script>
+                                // block
+                                const data3 ={
+                                   
+                                };
+                                //config block
+                                //render block
+                        
+                        
+                                const ctx3 = document.getElementById('myChart');
+                              
+                                new myChart3 (ctx3, {
+                                  type: 'pie',
+                                   data: {
+                                    labels: ['Red', 'Blue'],
+                                    datasets: [{
+                                      label: '# of Calories',
+                                      data: [12, 19, 3, 5, 2, 3],
+                                      borderWidth: 1
+                                    }]
+                                  },
+                                  options: {
+                        
+                                  }
+                                });
+                              </script>
 
 
                     </div>
@@ -397,7 +440,7 @@
             .chartBox {
                 width: 2000px;
                 height: 100%;
-                padding: 0;
+                padding-top: 20px;                
                 border-radius: 20px;
                 /* border: solid 3px rgb(235, 130, 54); */
                 background: white;
@@ -406,7 +449,7 @@
 
         <div class="chartCard">
             <div class="chartBox">
-                <canvas width="20000" height="3000" id="myChart"></canvas>
+                <canvas width="21000" height="3000" id="myChart"></canvas>
                 <canvas width="20000" height="3000" id="myChart" id="myChart2"></canvas>
             </div>
         </div>
@@ -416,6 +459,7 @@
             const data = {
                 labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
                 datasets: [{
+                    label: 'Weekly Calories',
                     data: [
                         { x: 'Mon', y: 3000, sales: [1, 1, 1, 1, 1, 1, 1], title: 'Monday' },
                         { x: 'Tue', y: 2643, sales: [1, 1, 1, 1, 1, 1, 2], title: 'Tuesday' },
@@ -453,10 +497,15 @@
                 type: 'bar',
                 data,
                 options: {
+                    plugins: {
+                    legend: {
+                        display: false
+                    }},
                     scales: {
                         y: {
                             beginAtZero: true
                         }
+
                     }
                 }
             };
@@ -485,6 +534,9 @@
                 type: 'bar',
                 data: data2,
                 options: {
+                    legend: {
+                        display: false
+                    },
                     scales: {
                         y: {
                             beginAtZero: true

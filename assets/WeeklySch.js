@@ -28,11 +28,10 @@ function initilizeLocalStorage() {
   function printCalories() {
    
     var selday = 'day' + day
-
   $("#day" + day).find("#breakfast").find('.mealCal').text(weeklyMeal[selday][breakfast])
-  $("#day" + day).find("#lunch").find('.mealCal').text(weeklyMeal[selday][lunch])
-  $("#day" + day).find("#dinner").find('.mealCal').text(weeklyMeal[selday][dinner])
-  $("#day" + day).find('.dayMealtotal').text(totalCalories)
+  // $("#day" + day).find("#lunch").find('.mealCal').text(weeklyMeal[selday].lunch)
+  // $("#day" + day).find("#dinner").find('.mealCal').text(weeklyMeal[selday].dinner)
+  // $("#day" + day).find('.dayMealtotal').text(totalCalories)
 
   }
 
