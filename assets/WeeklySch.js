@@ -1,17 +1,19 @@
-// function saveCalories() {
+//issues
 
-//     localStorage.setItem("meal", JSON.stringify(mealCalories))
-// }
+//empty weekly object should be initially stored
+//only current days data is displayed even though other days' data is stored
+//when page is refreshed and new data is added, local storage is reset and only new data is saved
 
 function initilizeLocalStorage() {
   var dataSaved = JSON.parse(localStorage.getItem("saved"));
+  printCalories();
 
   if (!dataSaved) {
     localStorage.setItem("saved", JSON.stringify([]));
   }
 }
 initilizeLocalStorage();
-printCalories();
+// printCalories();
 
 function saveCalories() {
   // var dayOfTheWeek = dayjs().format('dddd')
