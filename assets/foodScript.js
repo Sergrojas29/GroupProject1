@@ -1,10 +1,10 @@
-var todaysCalories
-var breakfastCalories
-var lunchCalories
-var dinnerCalories
-var totalCalories
-var mealCalories
-var Meal = [{}]
+let todaysCalories = 0
+let breakfastCalories = 0
+let lunchCalories = 0
+let dinnerCalories = 0
+let totalCalories 
+let mealCalories = 0
+var Meal = []
 
 var dailyMeal = {
   breakfast: breakfastCalories,
@@ -14,37 +14,41 @@ var dailyMeal = {
 
 }
 
-
-var breafastbtn = document.querySelector('#breafastbtn')
-
-breafastbtn.addEventListener('click', callFood, breakfastFood)
-lunchbtn.addEventListener('click', callFood, lunchFood)
-dinnerbtn.addEventListener('click', callFood, dinnerFood)
-
-function processFood(data){
-  console.log(data)
-
-  for (let index = 0; index < data.items.length; index++) {
-    //For each item in the Array, pull the calories
-    mealCalories =+ data.items[index].calories;
-    //Add each meal to the nutrition total
-    Meal.push( data.items[index])
-    console.log(mealCalories)
-    
-  }
+//*Just adds header Days time and date
+function setDate() {
+  var today = dayjs().day();
+  todayHour = Number(dayjs().format('HH'));
   
-  console.log(Meal)
-  $(".inputTextArea").val(Meal)
-  console.log("Meal Calories: " + mealCalories)
-  
+  var date = document.querySelector('#date')
+  var time = document.querySelector('#time')
+  return todayHour
 }
+setDate()
 
 
 
-function callFood() {
+
+$('#breakfastbtn').on('click', function(){
+  callFood('breakfast')
+})
+$('#lunchbtn').on('click', function() {
+  callFood('lunch')
+})
+$('#dinnerbtn').on('click', function () {
+  callFood('dinner')
+})
+
+
+
+
+
+
+
+
+function callFood(time) {
 // $('.inputTextArea').val()
-  var query = "Steak and eggs"
-
+  var query = "Steak and broccoli"
+console.log(JSON.stringify(time))
   fetch('https://api.calorieninjas.com/v1/nutrition?query=' + query, {
     headers: {
       'X-Api-Key': 'QoMyRTp5iThrCA1lK5JxQA==9qY9LyZsd0WiNkXu'
@@ -55,21 +59,67 @@ function callFood() {
       return response.json();
     })
     .then(function (data) {
-      processFood(data)
-    })
+      console.log(data)
+      Meal.push(data.items)
+      mealCalories = 0
+      for (let index = 0; index < data.items.length; index++) {
+        //For each item in the Array, pull the calories
+          var calories = Number(data.items[index].calories)
+          console.log('Calories: ' + calories)
+          mealCalories += calories
+         
+        
+        
+      }  console.log('Meal Calories: ' + mealCalories)
+        
+      //Meal.push(data.items[index])
+      console.log("Meal " + JSON.stringify(Meal))
+      console.log("Now log to meal Name")
+      
+      if (time == "breakfast") {
+
+        console.log(time)
+        breakfastCalories += mealCalories
+        totalCalories += breakfastCalories
+        console.log("Breakfast Calories: " + breakfastCalories)
+        callCalories()
+      } else if (time == "lunch") {
+
+        console.log(time)
+        lunchCalories += mealCalories
+        totalCalories += lunchCalories
+        console.log("Lunch Calories: " + lunchCalories)
+        callCalories
+      } else if (time == "dinner") {
+
+        console.log(time)
+        dinnerCalories += mealCalories
+        totalCalories += dinnerCalories
+        console.log("Dinner Calories: " + dinnerCalories)
+        callCalories()
+      }       
+    })    
 };
 
-
-
-//*Just adds header Days time and date
-function setDate() {
-  var today = dayjs();
-  todayHour = Number(dayjs().format('HH'));
-  var date = document.querySelector('#date')
-  var time = document.querySelector('#time')
-  return todayHour
+//Possible Event 
+function callCalories() {
+  
+    
+    $("#day" + today).find("#breakfast").find('.mealCal').text(breakfastCalories)
+    $("#day" + today).find("#lunch").find('.mealCal').text(lunchCalories)
+    $("#day" + today).find("#dinner").find('.mealCal').text(dinnerCalories)
+    $("#day" + today).find("#mealTotal").find('.dayMealCal').text(totalCalories)
+  
 }
-setDate()
+
+
+
+
+
+
+
+
+
 
 //! data Return from calorieNinjas
 var items1 = {
@@ -102,48 +152,21 @@ var items2 = {
   sugar_g: 3.6,
 }
 
-var items3 = {
-  calories: 1804.3,
-  carbohydrates_total_g: 0,
-  cholesterol_mg: 10850,
-  fat_saturated_g: 822.8,
-  fat_total_g: 2131.4,
-  fiber_g: 0,
-  name: "steak",
-  potassium_mg: 22019,
-  protein_g: 2943.5,
-  serving_size_g: 11339.8,
-  sodium_mg: 5914,
-  sugar_g: 0,
-}
-
-var items4 = {
-  calories: 35,
-  carbohydrates_total_g: 7.3,
-  cholesterol_mg: 0,
-  fat_saturated_g: 0.1,
-  fat_total_g: 0.4,
-  fiber_g: 3.3,
-  name: "broccoli",
-  potassium_mg: 65,
-  protein_g: 2.4,
-  serving_size_g: 100,
-  sodium_mg: 41,
-  sugar_g: 1.4,
-}
 
 
-function breakfastFood(){
-  breakfastCalories =+ mealCalories
-  totalCalories =+ breakfastCalories
-}
 
-function lunchFood() {
-  lunchCalories =+ mealCalories
-  totalCalories =+ lunchCalories
-}
 
-function dinnerFood() {
-  dinnerCalories =+ mealCalories
-  totalCalories =+ dinnerCalories
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
