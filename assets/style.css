@@ -2,54 +2,85 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Outfit', sans-serif;  
+    font-family: 'Outfit', sans-serif;
 
 }
 
-:root{
-    --MainContainHeight: 400px;
+:root {
+    --MainContainHeight: 425px;
     --WeekSchedule: 400px;
     --BGColo: white;
     --UnivBorder: 15px;
 
     --headerColor: #a7e8d2;
-    --headerColorSecond:#379583;
-    --headerColorThird:#8de2d25c;
+    --headerColorSecond: #379583;
+    --headerColorThird: #8de2d25c;
     --accent: #fca264;
     --color1: #a0c365;
-    --color2: #74A763 ;
-    --color3: #478a61 ;
+    --color2: #74A763;
+    --color3: #478a61;
 
- 
+
 
 }
 
-body{
+/* body {
     background-color: var(--headerColorThird);
+} */
+
+body {
+    --s: 160px;
+    --c1:  #a7e8d2;
+    --c2: #8de2d2;
+
+    background:
+        conic-gradient(at 25% 25%, #0000 75%, var(--c1) 0) 0 calc(3*var(--s)/4),
+        conic-gradient(#0000 75%, var(--c2) 0) calc(var(--s)/-8) calc(5*var(--s)/8),
+        conic-gradient(at 25% 75%, var(--c1) 25%, var(--c2) 0);
+    background-size: var(--s) var(--s);
 }
 
-header{
+
+header {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2vw;
+    padding: 1vw;
     margin: 0 auto;
+    border-radius: var(--UnivBorder);
     line-height: normal;
     background: var(--headerColor);
     box-shadow: 0px 0px 15px rgb(50, 50, 50);
 
 }
-#Title{
+
+#Title {
     background: var(--headerColorSecond);
-    
-    border-radius: 86% 14% 81% 19% / 36% 72% 28% 64% ;
+    color: white;
+    border-radius: 86% 14% 81% 19% / 36% 72% 28% 64%;
     font-size: 80pt;
+    margin-bottom: 15px;
     font-family: 'Satisfy', cursive;
-    
+
+}
+#slogan{
+    color:gray;
+    font-style: italic;
+    font-size: 15pt;
 }
 
-#Container_Main{
+#daySelector{
+    color: white;
+    padding: 5px 10px;
+    background: var(--accent);
+    margin-top: 5px;
+    border: none;
+    border-radius: var(--UnivBorder);
+    font-size: 18pt;
+}
+
+#Container_Main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,13 +91,16 @@ header{
     width: 2000px;
 }
 
-.cardContainer{
-    border-radius: calc( 2 * var(--UnivBorder));
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    border-radius: calc(2 * var(--UnivBorder));
     overflow: hidden;
     background-color: var(--BGColo);
-    
+
 }
-#Area_input{
+
+#Area_input {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -75,31 +109,33 @@ header{
     box-shadow: 0px 0px 15px darkgray;
 }
 
-#CardTitleArea{
+#CardTitleArea {
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 20%;
-    justify-content:center;
+    justify-content: center;
     align-content: center;
     align-items: center;
     padding: 10px 0;
     background-color: var(--headerColor);
     box-shadow: 0px 0px 15px darkgray;
 }
-.cardtitlestyle{
+
+.cardtitlestyle {
     font-family: 'Satisfy', cursive;
     font-size: 36pt;
     font-weight: 800;
-    
+
 }
 
-.inputSection{
+.inputSection {
     display: flex;
     align-items: center;
     height: 100%;
 }
-#sectionArea{
+
+#sectionArea {
     justify-content: center;
     width: 70%;
 
@@ -108,9 +144,9 @@ header{
     /* border: solid 1pt red; */
 }
 
-#inputTextArea{
+#inputTextArea {
     /* background-color: var(--accent); */
-    color: white;
+    color: black;
     font-size: 26pt;
     border-radius: var(--UnivBorder);
     border: none;
@@ -118,7 +154,7 @@ header{
     box-shadow: 0px 0px 15px darkgray;
 }
 
-#buttonArea{
+#buttonArea {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -127,40 +163,100 @@ header{
     height: 100%;
     width: 30%;
 }
-button{
+
+button {
     cursor: pointer;
     width: 150px;
     height: 80px;
     border: none;
     border-radius: var(--UnivBorder);
     box-shadow: 0px 0px 15px darkgray;
+    font-size: 20pt;
+    font-weight: 650;
 }
 
 button:hover {
-    box-shadow: inset 0px 0px 15px 5px white;
     background-color: #fca264;
+    border: solid 3pt var(--accent);
+
 }
 
-#breafastbtn{
+
+
+#breakfastbtn {
     background-color: var(--color1);
 }
-#lunchbtn{
+
+#lunchbtn {
     background-color: var(--color2);
-    
+
 }
-#dinnerbtn{
+
+#dinnerbtn {
     background-color: var(--color3);
 
 }
 
-#NutritionInfo{
+#NutritionInfo {
     display: flex;
     height: 100%;
     width: 60%;
     box-shadow: 0px 0px 15px 0px darkgray;
 }
 
-#weekSchedule{
+.nutritionContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#CalContain,
+#infoContain1,
+#infoContain2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* border: solid red ; */
+    height: 100%;
+    width: calc(100% / 3);
+
+}
+
+#CalContain {
+    font-size: 38pt;
+    font-weight: 700;
+    margin: auto 10px;
+    border-right: solid #81818168 1pt;
+}
+
+
+#NutrTitle,
+#calories {
+    border-bottom: solid 10pt #81818168;
+}
+
+.Ingredients {
+    color: #4c4c4c;
+    font-size: 20pt;
+}
+
+#infoContain1 {
+    font-size: 20pt;
+    margin-left: 5px;
+    border-right: solid #81818168 1pt;
+}
+
+.nutLable_bold {
+    font-weight: 700;
+}
+
+.nutLable_reg {
+    margin-left: 50px;
+}
+
+#weekSchedule {
     display: flex;
     justify-content: space-between;
     height: 300px;
@@ -169,7 +265,8 @@ button:hover {
     margin-bottom: 30px;
 
 }
-.daysContainBox{
+
+.daysContainBox {
     background: var(--BGColo);
     height: 100%;
     width: 14%;
@@ -180,7 +277,7 @@ button:hover {
 
 }
 
-.TitleHead{
+.TitleHead {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -190,29 +287,31 @@ button:hover {
     box-shadow: 0px 0px 15px darkgray;
 }
 
-.mealsContain{
+.mealsContain {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     height: 50%;
 }
 
-.meal{
+.meal {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: calc(100% / 3);
     height: 100%;
-    
+
 }
-.dayMealTitle{
+
+.dayMealTitle {
     padding-bottom: 5px;
-    
+
     /* background-color: var(--headerColor); */
     text-align: center;
     width: 100%;
 }
-.mealcalContainer{
+
+.mealcalContainer {
     border-left: solid 1.5pt var(--headerColorSecond);
     border-right: solid 1.5pt var(--headerColorSecond);
     display: flex;
@@ -220,7 +319,8 @@ button:hover {
     align-items: center;
     width: 100%;
 }
-.mealtotal{
+
+.mealtotal {
     text-align: center;
     /* border-top: solid 3pt var(--accent); */
 
@@ -231,13 +331,14 @@ button:hover {
 
 
 
-#lineGraph{
+#lineGraph {
     display: flex;
+    flex-direction: column;
     margin: 0 auto;
     border-radius: calc(2 * var(--UnivBorder));
-    justify-content: center;
     width: 2000px;
     height: 300px;
-    border: solid 10pt red;
+    overflow: hidden;
+    /* border: solid 10pt red; */
 
 }
