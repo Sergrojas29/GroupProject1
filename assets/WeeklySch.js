@@ -38,39 +38,39 @@ function initilizeLocalStorage() {
 
   var weeklyMeal = {
     day0: {
-      breakfast: 0,
-      lunch: 0,
-      dinner: 0,
+      breakfast: 60.96,
+      lunch: 61.9,
+      dinner: 60,
     },
     day1: {
-      breakfast: 0,
-      lunch: 0,
-      dinner: 0,
+      breakfast: 100,
+      lunch: 100,
+      dinner: 100,
     },
     day2: {
-      breakfast:0,
-      lunch: 0,
-      dinner: 0,
+      breakfast:200,
+      lunch: 200,
+      dinner: 200,
     },
     day3: {
-      breakfast: 0,
-      lunch: 0,
-      dinner: 0,
+      breakfast: 300,
+      lunch: 300,
+      dinner: 300,
     },
     day4: {
-      breakfast: 0,
-      lunch: 0,
-      dinner: 0,
+      breakfast: 400,
+      lunch: 400,
+      dinner: 400,
     },
     day5: {
-      breakfast: 0,
-      lunch: 0,
-      dinner: 0,
+      breakfast: 500,
+      lunch: 500,
+      dinner: 500,
     },
     day6: {
-      breakfast: 0,
-      lunch: 0,
-      dinner: 0,
+      breakfast: 600,
+      lunch: 600,
+      dinner: 600,
     },
   };
   
