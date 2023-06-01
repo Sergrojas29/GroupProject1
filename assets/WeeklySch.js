@@ -3,52 +3,6 @@
 //empty weekly object should be initially stored
 //only current days data is displayed even though other days' data is stored
 //when page is refreshed and new data is added, local storage is reset and only new data is saved
-
-function initilizeLocalStorage() {
-  var dataSaved = JSON.parse(localStorage.getItem("saved"));
-  printCalories();
-
-  if (!dataSaved) {
-    localStorage.setItem("saved", JSON.stringify([]));
-  }
-}
-initilizeLocalStorage();
-// printCalories();
-
-function saveCalories() {
-  // var dayOfTheWeek = dayjs().format('dddd')
-  localStorage.setItem("saved", JSON.stringify(weeklyMeal));
-}
-
-function getCalories(time) {
-  var selday = "day" + day;
-  var calNut = document.querySelector("#calories").innerText;
-  weeklyMeal[selday][time] = Number(calNut);
-  saveCalories();
-  printCalories();
-}
-
-function printCalories() {
-  var mealLS = JSON.parse(localStorage.getItem("saved"));
-  console.log(mealLS);
-  var selday = "day" + day;
-  $("#day" + day)
-    .find("#breakfast")
-    .find(".mealCal")
-    .text(mealLS[selday].breakfast);
-  $("#day" + day)
-    .find("#lunch")
-    .find(".mealCal")
-    .text(mealLS[selday].lunch);
-  $("#day" + day)
-    .find("#dinner")
-    .find(".mealCal")
-    .text(mealLS[selday].dinner);
-  $("#day" + day)
-    .find(".dayMealtotal")
-    .text(totalCalories);
-}
-
 var weeklyMeal = {
   day0: {
     breakfast: 0,
@@ -86,3 +40,51 @@ var weeklyMeal = {
     dinner: 0,
   },
 };
+
+function initilizeLocalStorage() {
+  var dataSaved = JSON.parse(localStorage.getItem("saved"));
+  console.log(weeklyMeal);
+  if (!dataSaved) {
+    localStorage.setItem("saved", JSON.stringify([weeklyMeal]));
+  }
+}
+initilizeLocalStorage();
+printCalories();
+
+function saveCalories(updatedWeek) {
+  // var dayOfTheWeek = dayjs().format('dddd')
+  localStorage.setItem("saved", JSON.stringify([updatedWeek]));
+}
+
+function getCalories(time) {
+  var selday = "day" + day;
+  var calNut = document.querySelector("#calories").innerText;
+  var storage = JSON.parse(localStorage.getItem("saved"));
+  // console.log(storage[0]);
+  var updatedWeek = (storage[0][selday][time] = Number(calNut));
+  // console.log(updatedWeek);
+  saveCalories(storage[0]);
+  printCalories();
+}
+
+function printCalories() {
+  var mealLS = JSON.parse(localStorage.getItem("saved"));
+  console.log(mealLS);
+  console.log(day);
+  var selday = "day" + day;
+  $("#day" + day)
+    .find("#breakfast")
+    .find(".mealCal")
+    .text(mealLS[0][selday].breakfast);
+  $("#day" + day)
+    .find("#lunch")
+    .find(".mealCal")
+    .text(mealLS[0][selday].lunch);
+  $("#day" + day)
+    .find("#dinner")
+    .find(".mealCal")
+    .text(mealLS[0][selday].dinner);
+  $("#day" + day)
+    .find(".dayMealtotal")
+    .text(totalCalories);
+}
