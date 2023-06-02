@@ -53,9 +53,8 @@ function CalculateTotalNutritionInfo(data) {
         }
     }
     nutritionInfo(fullNutritionInfo)
-    pieChange()
-    sumthenWrite()
-    setChartData()
+    // sumthenWrite()
+    // setChartData()
 }
 
 function nutritionInfo(object) {
@@ -91,6 +90,55 @@ function pieChange(){
     var sizeForpie = (calfromInput / 2000) * 100
     pieChart.setAttribute('style',`background-image: conic-gradient(var(--headerColorSecond) ${sizeForpie}%, rgba(255, 255, 255, 0) 1%, rgba(0, 0, 0, 0));`)
 }
+
+//! PieGraph Second Function
+WritePieChart()
+
+function WritePieChart(){
+    const ctx3 = document.getElementById('PieChart');
+    var MealCalInput = Number(document.querySelector('#calories').innerText)
+    var TotalCalForTheDay = 2200
+    var CalLeft = TotalCalForTheDay - MealCalInput
+    const data = {
+        labels: [
+            'Daily Total Calorie',
+            'Meal Calorie',    
+        ],
+        datasets: [{
+            
+            label: 'Pie Chart',
+            data: [CalLeft, MealCalInput],
+            backgroundColor: [
+                '#a7e8d2',
+                '#379583',
+                
+            ],
+            hoverOffset: 30
+        }]
+    };
+    
+    const config3 = {
+        type: 'pie',
+        data: data,
+        options:{
+            plugins:{
+                tooltip:{
+                    enabled:false
+                },
+                legend:{
+                    display: false,
+
+                }
+            }
+        }
+        
+    };
+    
+    const myChartpie = new Chart(ctx3, config3);
+}
+
+
+
 
 //! Code for graph
 setChartData()

@@ -14,7 +14,7 @@
 
     --headerColor: #a7e8d2;
     --headerColorSecond: #379583;
-    --headerColorThird: #8de2d25c;
+    --headerColorThird: #8de2d2a5;
     --accent: #fca264;
     --color1: #a0c365;
     --color2: #74A763;
@@ -270,7 +270,7 @@ button:hover {
 
 }
 
-#piewhole,
+/* #piewhole,
 #piewhole::after {
     margin: 0 auto;
     height: 300px;
@@ -291,6 +291,21 @@ button:hover {
     
 
 
+} */
+
+.chartBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+#PieChart{
+    position: absolute;
+    /* border: solid 1pt red; */
+    
+    border-radius: 50%;
+    box-shadow: 0px 0px 15px 5px lightgray;
 }
 
 
@@ -305,9 +320,15 @@ button:hover {
     border-radius: 50%;
     background: none;
     z-index: 100;
-    transition: all .8s ease-in-out; 
+    transition: all .1 ease-in-out; 
 
 }
+
+.PieChartBox{
+    height: 300px;
+    width: 300px;
+}
+
 #pieToolTip{
     font-size: 20pt;
     font-weight: 800;

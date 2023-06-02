@@ -136,15 +136,11 @@
           </div>
           <div id="infoContian2">
 
-            <head>
-              <meta charest="UTF-8" />
-              <meta name="viewport" content="" width=device-width, initial-scale="1.0" />
-              <title>Calorie Counter Piechart</title>
-              <style type="text/css">
-                .chartBox {
-                  width: 700px;
-                }
-              </style>
+            <style type="text/css">
+              .chartBox {
+                width: 100px;
+              }
+            </style>
             </head>
 
             <body>
@@ -167,20 +163,31 @@
                 let calorieIntake = 477.8;
 
                 let caloriesLeft = TotalCalories - calorieIntake;
-                const ctx3 = document.getElementById('myChart3').getContext('2d');
+                const ctx3 = document.getElementById('PieChart').getContext('2d');
 
-                let pieChart3 = new Chart(ctx3, {
+                let pieChart3 = new Chart(ctx3, config3);
+                
+                
+                const config3 = {
                   type: 'pie',
                   data: {
                     labels: ['Calories Consumed', 'Calories Left'],
                     datasets: [{
                       label: '# of Calories',
                       data: [calorieIntake, caloriesLeft],
-                      borderWidth: 1
-                    }]
+
+                      borderWidth: 1,
+                    }],
+                    options: {
+                      plugins: {
+                        legend: {
+                          display: false
+                        }
+                      }
+                    }
                   }
 
-                });
+                }
               </script>
 
 
@@ -452,13 +459,13 @@
     </style>
 
     <div class="chartCard">
-     <div class="chartBox">
+      <div class="chartBox">
         <canvas id="myChart"></canvas>
-    </div>
-    <div class="chartBox">
+      </div>
+      <div class="chartBox">
         <canvas id="myChart2"></canvas>
-    </div>
-    
+      </div>
+
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
     <script>
@@ -467,35 +474,35 @@
       // Get the total calories from each day
       // Create an empty array to store the integer parts
       var dayMealtotal = [];
-      
+
       // Loop through the divs from day0 to day2
       for (var i = 0; i <= 6; i++) {
         // Get the dayMealtotal element by its ID
         var dayMealtotalElement = document.getElementById("day" + i).querySelector(".dayMealtotal");
-        
+
         // Get the innerHTML value and extract the integer part
         var dayMealtotalValue = parseInt(dayMealtotalElement.innerHTML);
-      
+
         // Add the integer part to the array
         dayMealtotal.push(dayMealtotalValue);
       }
-      
+
       // Print the array values
       console.log(dayMealtotal);
 
-      
+
       const data = {
         labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
         datasets: [{
           label: 'Weekly Calories',
           data: [
-            {x: 'Sun', y: dayMealtotal[0], sales: [1, 1, 1, 1, 1, 1, 8], title: 'Sunday'},
-            {x: 'Mon', y: dayMealtotal[1], sales: [1, 1, 1, 1, 1, 1, 1], title: 'Monday'},
-            {x: 'Tue', y: dayMealtotal[2], sales: [1, 1, 1, 1, 1, 1, 2], title: 'Tuesday'},
-            {x: 'Wed', y: dayMealtotal[3], sales: [1, 1, 1, 1, 1, 1, 3], title: 'Wednesday'},
-            {x: 'Thu', y: dayMealtotal[4], sales: [1, 1, 1, 1, 1, 1, 4], title: 'Thursday'},
-            {x: 'Fri', y: dayMealtotal[5], sales: [1, 1, 1, 1, 1, 1, 5], title: 'Friday'},
-            {x: 'Sat', y: dayMealtotal[6], sales: [1, 1, 1, 1, 1, 1, 6], title: 'Saturday'},
+            { x: 'Sun', y: dayMealtotal[0], sales: [1, 1, 1, 1, 1, 1, 8], title: 'Sunday' },
+            { x: 'Mon', y: dayMealtotal[1], sales: [1, 1, 1, 1, 1, 1, 1], title: 'Monday' },
+            { x: 'Tue', y: dayMealtotal[2], sales: [1, 1, 1, 1, 1, 1, 2], title: 'Tuesday' },
+            { x: 'Wed', y: dayMealtotal[3], sales: [1, 1, 1, 1, 1, 1, 3], title: 'Wednesday' },
+            { x: 'Thu', y: dayMealtotal[4], sales: [1, 1, 1, 1, 1, 1, 4], title: 'Thursday' },
+            { x: 'Fri', y: dayMealtotal[5], sales: [1, 1, 1, 1, 1, 1, 5], title: 'Friday' },
+            { x: 'Sat', y: dayMealtotal[6], sales: [1, 1, 1, 1, 1, 1, 6], title: 'Saturday' },
           ],
 
           backgroundColor: [
@@ -521,65 +528,65 @@
       };
 
       function getMealCalValues(dayId) {
-      const dayElement = document.getElementById(dayId);
-      const mealElements = dayElement.querySelectorAll('.meal');
-  
-      const mealCalValues = {};
-  
-      mealElements.forEach(mealElement => {
+        const dayElement = document.getElementById(dayId);
+        const mealElements = dayElement.querySelectorAll('.meal');
+
+        const mealCalValues = {};
+
+        mealElements.forEach(mealElement => {
           const dayMealTitleElement = mealElement.querySelector('.dayMealTitle');
           const mealCalElement = mealElement.querySelector('.mealCal');
-  
-          if (dayMealTitleElement && mealCalElement) {
-              const dayMealTitle = dayMealTitleElement.textContent.trim();
-              const mealCalValue = parseInt(mealCalElement.textContent.trim(), 10);
-              
-              // Ensure that dayMealTitle is one of 'B', 'L' or 'D'
-              if (['B', 'L', 'D'].includes(dayMealTitle)) {
-                  mealCalValues[dayMealTitle] = mealCalValue;
-              }
-          }
-      });
-  
-      return mealCalValues;
-  }
-  
-  console.log(getMealCalValues('day0'));
 
-      
-  var chart1 = new Chart(document.getElementById('myChart').getContext('2d'), {
-    type: 'bar',
-    data: data,
-    options: {
-        onClick: function(event, elements, chart) {
-            if (elements.length > 0) { // If a bar is clicked
-                var index = elements[0].index; // Get the index of clicked bar
-                var label = chart.data.labels[index]; // Get the label of clicked bar
-                // Now create second chart using the label to pick the detail data
-                var cal = getMealCalValues(`day${index}`)
-                if (chart2) {
-                    chart2.destroy(); // Destroy current detail chart if it exists
-                }
-                chart2 = new Chart(document.getElementById('myChart2').getContext('2d'), {
-                    type: 'bar',
-                    data: {
-                      labels: ['Breakfast', 'Lunch', 'Dinner'],
-                      datasets: [{
-                        data: [cal['B'], cal['L'], cal['D']],
-                        backgroundColor: 'Yellow'
-                      }],
-                      label: `Daily Calories`
-                    }, // Use the label to get the corresponding detail data
-                    options: {}
-                });
+          if (dayMealTitleElement && mealCalElement) {
+            const dayMealTitle = dayMealTitleElement.textContent.trim();
+            const mealCalValue = parseInt(mealCalElement.textContent.trim(), 10);
+
+            // Ensure that dayMealTitle is one of 'B', 'L' or 'D'
+            if (['B', 'L', 'D'].includes(dayMealTitle)) {
+              mealCalValues[dayMealTitle] = mealCalValue;
             }
+          }
+        });
+
+        return mealCalValues;
+      }
+
+      console.log(getMealCalValues('day0'));
+
+
+      var chart1 = new Chart(document.getElementById('myChart').getContext('2d'), {
+        type: 'bar',
+        data: data,
+        options: {
+          onClick: function (event, elements, chart) {
+            if (elements.length > 0) { // If a bar is clicked
+              var index = elements[0].index; // Get the index of clicked bar
+              var label = chart.data.labels[index]; // Get the label of clicked bar
+              // Now create second chart using the label to pick the detail data
+              var cal = getMealCalValues(`day${index}`)
+              if (chart2) {
+                chart2.destroy(); // Destroy current detail chart if it exists
+              }
+              chart2 = new Chart(document.getElementById('myChart2').getContext('2d'), {
+                type: 'bar',
+                data: {
+                  labels: ['Breakfast', 'Lunch', 'Dinner'],
+                  datasets: [{
+                    data: [cal['B'], cal['L'], cal['D']],
+                    backgroundColor: 'Yellow'
+                  }],
+                  label: `Daily Calories`
+                }, // Use the label to get the corresponding detail data
+                options: {}
+              });
+            }
+          }
         }
-    }
-});
+      });
 
       var chart2;
-      // setup 
-   
+      // setup
+
     </script>
 
     </script>
