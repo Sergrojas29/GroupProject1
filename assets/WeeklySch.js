@@ -3,43 +3,36 @@ var weeklyMeal = {
     breakfast: 0,
     lunch: 0,
     dinner: 0,
-   
   },
   day1: {
     breakfast: 0,
     lunch: 0,
     dinner: 0,
-   
   },
   day2: {
     breakfast: 0,
     lunch: 0,
     dinner: 0,
-   
   },
   day3: {
     breakfast: 0,
     lunch: 0,
     dinner: 0,
-    
   },
   day4: {
     breakfast: 0,
     lunch: 0,
     dinner: 0,
-    
   },
   day5: {
     breakfast: 0,
     lunch: 0,
     dinner: 0,
-    
   },
   day6: {
     breakfast: 0,
     lunch: 0,
     dinner: 0,
-    
   },
 };
 
@@ -91,4 +84,10 @@ function printCalories() {
     //   .find(".dayMealtotal")
     //   .text(total);
   }
+}
+
+function clearCalories() {
+  localStorage.setItem("saved", JSON.stringify([weeklyMeal]));
+  printCalories();
+  sumthenWrite();
 }
