@@ -3,18 +3,19 @@ sumthenWrite()
 
 //! Code to write weeklyMeal to HTML
 function saveMealData(mealTitle , weekDayNum) {
-    const Choosemeal = document.querySelectorAll(`#${mealTitle}`)       
-    Choosemeal[weekDayNum].children[1].children[0].innerText = Math.round(weeklyMeal['day' + weekDayNum][mealTitle])
-    return Math.round(weeklyMeal['day' + weekDayNum][mealTitle])
+    var weeklyMealGet = JSON.parse(localStorage.getItem("saved"))
+    var caltotal = Math.round(weeklyMealGet[0]['day' + weekDayNum][mealTitle])
+    return caltotal
 }
 
 
 function sumthenWrite() {
-    var ChooseDay = document.querySelectorAll('.dayMealtotal')
+    var ChooseDay = document.querySelectorAll('.dayMealtotal[class="dayMealtotal"]')
     for (let i = 0; i < 7; i++) {
         var totalCals = 0
         totalCals+= saveMealData("breakfast", i) + saveMealData("lunch", i) +saveMealData("dinner", i)
-        ChooseDay[i].innerText = `${totalCals} Cal`
+        var str = ' Cal'
+        ChooseDay[i].innerText = totalCals
     }
 }
 
@@ -53,8 +54,8 @@ function CalculateTotalNutritionInfo(data) {
     }
     nutritionInfo(fullNutritionInfo)
     pieChange()
-    setChartData()
     sumthenWrite()
+    setChartData()
 }
 
 function nutritionInfo(object) {

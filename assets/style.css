@@ -388,11 +388,27 @@ button:hover {
 
 .mealtotal {
     text-align: center;
-    /* border-top: solid 3pt var(--accent); */
+    /* border: solid 3pt var(--accent); */
+
+
 
 }
 
+.tolalCals{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    border-radius: var(--UnivBorder);
+    width: 60%;
+    background: rgb(255, 74, 74);
+    background: rgb(48, 244, 48);
 
+    margin: 0 auto;
+
+}
+.totalunits{
+    margin-left: 5px;
+}
 
 
 
