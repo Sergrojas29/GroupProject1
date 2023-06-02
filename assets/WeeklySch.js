@@ -1,8 +1,3 @@
-//issues
-
-//empty weekly object should be initially stored
-//only current days data is displayed even though other days' data is stored
-//when page is refreshed and new data is added, local storage is reset and only new data is saved
 var weeklyMeal = {
   day0: {
     breakfast: 0,
@@ -43,7 +38,7 @@ var weeklyMeal = {
 
 function initilizeLocalStorage() {
   var dataSaved = JSON.parse(localStorage.getItem("saved"));
-  console.log(weeklyMeal);
+  // console.log(weeklyMeal);
   if (!dataSaved) {
     localStorage.setItem("saved", JSON.stringify([weeklyMeal]));
   }
@@ -70,21 +65,23 @@ function getCalories(time) {
 function printCalories() {
   var mealLS = JSON.parse(localStorage.getItem("saved"));
   console.log(mealLS);
-  console.log(day);
-  var selday = "day" + day;
-  $("#day" + day)
-    .find("#breakfast")
-    .find(".mealCal")
-    .text(mealLS[0][selday].breakfast);
-  $("#day" + day)
-    .find("#lunch")
-    .find(".mealCal")
-    .text(mealLS[0][selday].lunch);
-  $("#day" + day)
-    .find("#dinner")
-    .find(".mealCal")
-    .text(mealLS[0][selday].dinner);
-  $("#day" + day)
-    .find(".dayMealtotal")
-    .text(totalCalories);
+  for (let i = 0; i < 7; i++) {
+    var selday = "day" + i;
+
+    $("#day" + i)
+      .find("#breakfast")
+      .find(".mealCal")
+      .text(mealLS[0][selday].breakfast);
+    $("#day" + i)
+      .find("#lunch")
+      .find(".mealCal")
+      .text(mealLS[0][selday].lunch);
+    $("#day" + i)
+      .find("#dinner")
+      .find(".mealCal")
+      .text(mealLS[0][selday].dinner);
+    $("#day" + i)
+      .find(".dayMealtotal")
+      .text(totalCalories);
+  }
 }
