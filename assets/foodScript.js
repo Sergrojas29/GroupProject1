@@ -132,10 +132,11 @@ function callFood(time) {
       CalculateTotalNutritionInfo(data)
       getCalories(time)
       Meal.push(data.items)
+      .then(sumthenWrite(),setChartData())
 
 
-      sumthenWrite()
-      setChartData()
+      
+      
 
       for (let index = 0; index < data.items.length; index++) {
         //For each item in the Array, pull the calories

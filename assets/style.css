@@ -57,7 +57,7 @@ header {
 
 #Title {
     background: var(--headerColorSecond);
-    color: black;
+    color: white;
     border-radius: 86% 14% 81% 19% / 36% 72% 28% 64%;
     font-size: 80pt;
     margin-bottom: 15px;
@@ -80,7 +80,61 @@ header {
     border: none;
     border-radius: var(--UnivBorder);
     font-size: 18pt;
+    transition: box-shadow .5s ease-in-out ;
+    box-shadow: none;
 }
+#daySelector:active,
+#daySelector:hover{
+    box-shadow: 0 0 0 5px white;
+}
+
+.Day_BtnContain{
+    display: flex;
+    position: relative;
+}
+
+#reset-btn{
+    margin-top: 5px;
+    background: var(--accent);
+    padding: 0 5px;
+    color: white;
+    border: none;
+    border-radius: var(--UnivBorder);
+    /* here */
+    font-weight: 500;
+    position: absolute;
+    display: inline-block;
+    font-size: 16pt;
+    height: 36px;
+    width: 35px;
+    transform: translateX(280px);
+    overflow: hidden;    
+    transform-origin: right;
+    box-shadow: none;
+    transition: width .5s ease-in, box-shadow .5s ease-in;
+}
+#Btn_text{
+    visibility: hidden;
+    
+}
+#reset-btn:hover #Btn_text{
+    visibility:visible;
+}
+#reset-btn:hover{
+    box-shadow: 0 0 0 5px white;
+    width: 155px;
+}
+
+.material-symbols-outlined {
+    display: flex;
+    margin-left: 1px;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+  }
+
 
 #Container_Main {
     display: flex;
@@ -421,8 +475,8 @@ button:hover {
     justify-content: center;
     border-radius: var(--UnivBorder);
     width: 60%;
-    background: rgb(255, 74, 74);
-    background: rgb(48, 244, 48);
+    background: rgba(48, 244, 71, 0.255);
+    transition: background 1s ease-in-out;
 
     margin: 0 auto;
 

@@ -90,4 +90,5 @@ function clearCalories() {
   localStorage.setItem("saved", JSON.stringify([weeklyMeal]));
   printCalories();
   sumthenWrite();
+  setChartData()
 }
