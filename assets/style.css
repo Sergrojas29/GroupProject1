@@ -107,7 +107,7 @@ header {
     font-size: 16pt;
     height: 36px;
     width: 35px;
-    transform: translateX(280px);
+    transform: translateX(275px);
     overflow: hidden;    
     transform-origin: right;
     box-shadow: none;
@@ -122,7 +122,7 @@ header {
 }
 #reset-btn:hover{
     box-shadow: 0 0 0 5px white;
-    width: 155px;
+    width: 165px;
 }
 
 .material-symbols-outlined {
