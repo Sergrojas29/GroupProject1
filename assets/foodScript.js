@@ -18,12 +18,12 @@ var dailyMeal = {
 
 function dayOftheWeek(input) {
   // var today = dayjs().set('hour', 18).set('minute', 55)
-  
+
   var weekArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
   var Weekday = document.querySelector('#MainDayofWeek')
   Weekday.innerText = weekArray[input]
-  
+
 }
 
 
@@ -37,18 +37,18 @@ function setDate() {
   var date = document.querySelector('#date')
   var time = document.querySelector('#time')
   dayOftheWeek(day)
-  
+
 }
 setDate()
 
 
 
 
-$('#breakfastbtn').on('click', function(){
+$('#breakfastbtn').on('click', function () {
   callFood('breakfast')
   printCalories
 })
-$('#lunchbtn').on('click', function() {
+$('#lunchbtn').on('click', function () {
   callFood('lunch')
 })
 $('#dinnerbtn').on('click', function () {
@@ -56,60 +56,50 @@ $('#dinnerbtn').on('click', function () {
 })
 
 
-// function callCalories() {
+function callCalories() {
+
   // 
-    // 
-  // $("#day" + day).find("#breakfast").find('.mealCal').text(breakfastCalories)
-  // $("#day" + day).find("#lunch").find('.mealCal').text(lunchCalories)
-  // $("#day" + day).find("#dinner").find('.mealCal').text(dinnerCalories)
-  // $("#day" + day).find('.dayMealtotal').text(totalCalories)
-// 
-// }
+  $("#day" + day).find("#breakfast").find('.mealCal').text(breakfastCalories)
+  $("#day" + day).find("#lunch").find('.mealCal').text(lunchCalories)
+  $("#day" + day).find("#dinner").find('.mealCal').text(dinnerCalories)
+  $("#day" + day).find('.dayMealtotal').text(totalCalories)
+  // 
+}
 
 function changeDay(input) {
   day = input
   totalCalories = 0
   breakfastCalories = 0
   dinnerCalories = 0
-  lunchCalories = 0  
-  
-  
+  lunchCalories = 0
+
+
   dayOftheWeek(day)
 }
 
 
-
-
-
-
-
-
-
-
-
-
-function breakfast(){
+function breakfast() {
   breakfastCalories = 0
   breakfastCalories += mealCalories
   totalCalories += breakfastCalories
 
-  // callCalories()
+  callCalories()
 }
 
 function lunch() {
   lunchCalories = 0
   lunchCalories += mealCalories
   totalCalories += lunchCalories
-  console.log("Lunch Calories: " + lunchCalories)
-  // callCalories()
+  // console.log("Lunch Calories: " + lunchCalories)
+  callCalories()
 }
 
 function dinner() {
   dinnerCalories = 0
   dinnerCalories += mealCalories
   totalCalories += dinnerCalories
-  console.log("Dinner Calories: " + dinnerCalories)
-  // callCalories()
+  // console.log("Dinner Calories: " + dinnerCalories)
+  callCalories()
 }
 
 
@@ -121,7 +111,7 @@ function dinner() {
 function callFood(time) {
 
   var query = $('#inputTextArea').val()
-console.log(JSON.stringify(time))
+  // console.log(JSON.stringify(time))
   fetch('https://api.calorieninjas.com/v1/nutrition?query=' + query, {
     headers: {
       'X-Api-Key': 'QoMyRTp5iThrCA1lK5JxQA==9qY9LyZsd0WiNkXu'
@@ -134,41 +124,47 @@ console.log(JSON.stringify(time))
     .then(function (data) {
       mealCalories = 0
       Meal = []
-      
-      
-      
-      
 
-      
+
+
+
+
+      // console.log(data)
       CalculateTotalNutritionInfo(data)
       getCalories(time)
       Meal.push(data.items)
-        
+      .then(sumthenWrite(),setChartData())
+
+
+      
+      
+
       for (let index = 0; index < data.items.length; index++) {
         //For each item in the Array, pull the calories
-          var calories = Number(data.items[index].calories)
-         
-          mealCalories += calories
-          mealCalories = Math.round(mealCalories)
-        
-        
-      } 
-        
-      //Meal.push(data.items[index])
-      
-      
+        var calories = Number(data.items[index].calories)
+        // console.log('Calories: ' + calories)
+        mealCalories += calories
+        mealCalories = Math.round(mealCalories)
 
-if (time == "breakfast") {
-  console.log('breakfast')
-  breakfast()
-} else if (time == "lunch") {
-  console.log('lunch')
-  lunch()
-} else if (time == "dinner") {
-  console.log('dinner')
-  dinner()
-}       
+
+      }
+      // console.log('Meal Calories: ' + mealCalories)
+
+      //Meal.push(data.items[index])
+      // console.log("Meal " + JSON.stringify(Meal))
+      // console.log("Now log to meal Name")
+
+      if (time == "breakfast") {
+        // console.log('breakfast')
+        breakfast()
+      } else if (time == "lunch") {
+        // console.log('lunch')
+        lunch()
+      } else if (time == "dinner") {
+        // console.log('dinner')
+        dinner()
+      }
     })
 
-    
+
 };

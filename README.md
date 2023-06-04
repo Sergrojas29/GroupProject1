@@ -1,6 +1,6 @@
 # GroupProject1
 
-Food
+(https://sergrojas29.github.io/GroupProject1/)
 ## USER Story
 
 AS AN USER I WANT TO MINDFUL ON WHAT I EAT 
