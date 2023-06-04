@@ -1,0 +1,10 @@
+Its not a sales pitch
+
+-Present the User story, apply life aspects to IT
+-Go over acceptance criteria step by step and point out how to do it 
+    --Explain the graph as a simplification of the user experience
+    --Anything Missing just say thats in the next update please leave a commit 
+        and donate to the link
+
+-Probe for questions
+    

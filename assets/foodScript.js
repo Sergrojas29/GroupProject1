@@ -22,6 +22,7 @@ function dayOftheWeek(input) {
   var weekArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
   var Weekday = document.querySelector('#MainDayofWeek')
+  console.log(input)
   Weekday.innerText = weekArray[input]
 
 }
@@ -46,6 +47,7 @@ setDate()
 
 $('#breakfastbtn').on('click', function () {
   callFood('breakfast')
+  printCalories
 })
 $('#lunchbtn').on('click', function () {
   callFood('lunch')
@@ -167,75 +169,3 @@ function callFood(time) {
 
 
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//! data Return from calorieNinjas
-var items1 = {
-  calories: 477.8,
-  carbohydrates_total_g: 110.2,
-  cholesterol_mg: 0,
-  fat_saturated_g: 0.3,
-  fat_total_g: 2.3,
-  fiber_g: 40.7,
-  name: "carrots",
-  potassium_mg: 410,
-  protein_g: 10.3,
-  serving_size_g: 1360.7759999999998,
-  sodium_mg: 775,
-  sugar_g: 46.7,
-}
-
-var items2 = {
-  calories: 243.9,
-  carbohydrates_total_g: 20.9,
-  cholesterol_mg: 35,
-  fat_saturated_g: 2.1,
-  fat_total_g: 11.2,
-  fiber_g: 1.4,
-  name: "chicken sandwich",
-  potassium_mg: 184,
-  protein_g: 16.2,
-  serving_size_g: 100,
-  sodium_mg: 767,
-  sugar_g: 3.6,
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
