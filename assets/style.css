@@ -43,16 +43,29 @@ body {
 
 header {
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1vw;
+    padding: 15px 0;    
     margin: 0 auto;
     border-radius: var(--UnivBorder);
     line-height: normal;
     background: var(--headerColor);
     box-shadow: 0px 0px 15px rgb(50, 50, 50);
 
+}
+
+#logo{
+    height: 300px;
+    transform: rotate(0deg);
+    transition: all 1s ease-in-out;
+    
+    border-radius: 50%;
+}
+
+#logo:hover{
+    transform: rotate(11deg);
 }
 
 #Title {
@@ -64,6 +77,15 @@ header {
     font-family: 'Satisfy', cursive;
 
 
+}
+#navcontain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    transform: translateX(-210px) translateY(115px);
+
+    /* border: solid 1pt red; */
 }
 
 #slogan {
@@ -80,20 +102,21 @@ header {
     border: none;
     border-radius: var(--UnivBorder);
     font-size: 18pt;
-    transition: box-shadow .5s ease-in-out ;
+    transition: box-shadow .5s ease-in-out;
     box-shadow: none;
 }
+
 #daySelector:active,
-#daySelector:hover{
+#daySelector:hover {
     box-shadow: 0 0 0 5px white;
 }
 
-.Day_BtnContain{
+.Day_BtnContain {
     display: flex;
     position: relative;
 }
 
-#reset-btn{
+#reset-btn {
     margin-top: 5px;
     background: var(--accent);
     padding: 0 5px;
@@ -107,20 +130,23 @@ header {
     font-size: 16pt;
     height: 36px;
     width: 35px;
-    transform: translateX(275px);
-    overflow: hidden;    
+    transform: translateX(410px);
+    overflow: hidden;
     transform-origin: right;
     box-shadow: none;
     transition: width .5s ease-in, box-shadow .5s ease-in;
 }
-#Btn_text{
+
+#Btn_text {
     visibility: hidden;
-    
+
 }
-#reset-btn:hover #Btn_text{
-    visibility:visible;
+
+#reset-btn:hover #Btn_text {
+    visibility: visible;
 }
-#reset-btn:hover{
+
+#reset-btn:hover {
     box-shadow: 0 0 0 5px white;
     width: 165px;
 }
@@ -129,11 +155,11 @@ header {
     display: flex;
     margin-left: 1px;
     font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 48
-  }
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+}
 
 
 #Container_Main {
@@ -347,17 +373,17 @@ button:hover {
 
 } */
 
-.chartBox{
+.chartBox {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
 }
 
-#PieChart{
+#PieChart {
     position: absolute;
     /* border: solid 1pt red; */
-    
+
     border-radius: 50%;
     box-shadow: 0px 0px 15px 5px lightgray;
 }
@@ -374,25 +400,25 @@ button:hover {
     border-radius: 50%;
     background: none;
     z-index: 100;
-    transition: all .1 ease-in-out; 
+    transition: all .1 ease-in-out;
 
 }
 
-.PieChartBox{
+.PieChartBox {
     height: 300px;
     width: 300px;
 }
 
-#pieToolTip{
+#pieToolTip {
     font-size: 20pt;
     font-weight: 800;
     color: var(--accent);
     margin: auto;
 }
 
-#descOftool:hover{
+#descOftool:hover {
     /* background: rgba(227, 227, 227, 0.671); */
-    cursor:help;
+    cursor: help;
     opacity: 1;
 }
 
@@ -446,6 +472,9 @@ button:hover {
 
 .dayMealTitle {
     padding-bottom: 5px;
+    background-color: #cff0e5;
+    /* border-bottom: solid 1pt black; */
+    /* font-weight: 600; */
 
     /* background-color: var(--headerColor); */
     text-align: center;
@@ -469,7 +498,7 @@ button:hover {
 
 }
 
-.tolalCals{
+.tolalCals {
     display: flex;
     align-content: center;
     justify-content: center;
@@ -481,7 +510,8 @@ button:hover {
     margin: 0 auto;
 
 }
-.totalunits{
+
+.totalunits {
     margin-left: 5px;
 }
 

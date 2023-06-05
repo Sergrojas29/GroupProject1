@@ -16,28 +16,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
     <header>
-        <h1 id="Title">Nutrition Tracker</h1>
-        <h2 id="slogan">Did you miss a Day?</h2>
-        <div class="Day_BtnContain">
-            <form name="daySelect">
-                <select id="daySelector" placeholder="Choose" onchange='changeDay($("#daySelector").val())'>
-                    <option value='' disabled selected style='display:none;'>>Select Day</option>
-                    <option value="0">Sunday</option>
-                    <option value="1">Monday</option>
-                    <option value="2">Tuesday</option>
-                    <option value="3">Wednesday</option>
-                    <option value="4">Thursday</option>
-                    <option value="5">Friday</option>
-                    <option value="6">Saturday</option>
-                </select>
-            </form>
-            <button id="reset-btn" onclick="clearCalories()"> <i class="material-symbols-outlined">delete<span id="Btn_text">Reset Week</span></i></button>
+        <img src="./assets/logos/Logo.svg" alt="logo" id="logo">
+        <div id="navcontain">
+            <!-- <h2 id="slogan">Did you miss a Day?</h2> -->
+            <div class="Day_BtnContain">
+                <form name="daySelect">
+                    <select id="daySelector" placeholder="Choose" onchange='changeDay($("#daySelector").val())'>
+                        <option value='' disabled selected style='display:none;'>Select Day</option>
+                        <option value="0">Sunday</option>
+                        <option value="1">Monday</option>
+                        <option value="2">Tuesday</option>
+                        <option value="3">Wednesday</option>
+                        <option value="4">Thursday</option>
+                        <option value="5">Friday</option>
+                        <option value="6">Saturday</option>
+                    </select>
+                </form>
+                <button id="reset-btn" onclick="clearCalories()"> <i class="material-symbols-outlined">delete<span
+                            id="Btn_text">Reset Week</span></i></button>
+            </div>
         </div>
     </header>
 
