@@ -159,7 +159,8 @@ header {
 
 #Container_Main {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
   align-items: center;
   /* height: var(--MainContainHeight); */
   margin: 0 auto;
@@ -180,7 +181,7 @@ header {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 40%;
+  width: 600px;
   /* min-width: 325px; */
   margin-right: 10px;
   box-shadow: 0px 0px 15px darkgray;
@@ -273,7 +274,7 @@ button:hover {
 #NutritionInfo {
   display: flex;
   height: 100%;
-  /* width: 60%; */
+  width: 955px;
   box-shadow: 0px 0px 15px 0px darkgray;
 }
 
