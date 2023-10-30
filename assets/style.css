@@ -1,531 +1,550 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Outfit', sans-serif;
-
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
 }
 
 :root {
-    --MainContainHeight: 425px;
-    --WeekSchedule: 400px;
-    --BGColo: white;
-    --UnivBorder: 15px;
+  --MainContainHeight: 425px;
+  --WeekSchedule: 400px;
+  --BGColo: white;
+  --UnivBorder: 15px;
 
-    --headerColor: #a7e8d2;
-    --headerColorSecond: #379583;
-    --headerColorThird: #8de2d2a5;
-    --accent: #fca264;
-    --color1: #a0c365;
-    --color2: #74A763;
-    --color3: #478a61;
-
-
-
+  --headerColor: #a7e8d2;
+  --headerColorSecond: #379583;
+  --headerColorThird: #8de2d2a5;
+  --accent: #fca264;
+  --color1: #a0c365;
+  --color2: #74a763;
+  --color3: #478a61;
 }
 
 /* body {
     background-color: var(--headerColorThird);
 } */
+html {
+  font-size: 100%;
+}
 
 body {
-    --s: 160px;
-    --c1: #a7e8d2;
-    --c2: #8de2d2;
+  --s: 160px;
+  --c1: #a7e8d2;
+  --c2: #8de2d2;
 
-    background:
-        conic-gradient(at 25% 25%, #0000 75%, var(--c1) 0) 0 calc(3*var(--s)/4),
-        conic-gradient(#0000 75%, var(--c2) 0) calc(var(--s)/-8) calc(5*var(--s)/8),
-        conic-gradient(at 25% 75%, var(--c1) 25%, var(--c2) 0);
-    background-size: var(--s) var(--s);
+  background: conic-gradient(at 25% 25%, #0000 75%, var(--c1) 0) 0
+      calc(3 * var(--s) / 4),
+    conic-gradient(#0000 75%, var(--c2) 0) calc(var(--s) / -8)
+      calc(5 * var(--s) / 8),
+    conic-gradient(at 25% 75%, var(--c1) 25%, var(--c2) 0);
+  background-size: var(--s) var(--s);
 }
-
 
 header {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 0;    
-    margin: 0 auto;
-    border-radius: var(--UnivBorder);
-    line-height: normal;
-    background: var(--headerColor);
-    box-shadow: 0px 0px 15px rgb(50, 50, 50);
-
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+  margin: 0 auto;
+  border-radius: var(--UnivBorder);
+  line-height: normal;
+  background: var(--headerColor);
+  box-shadow: 0px 0px 15px rgb(50, 50, 50);
 }
 
-#logo{
-    height: 300px;
-    transform: rotate(0deg);
-    transition: all 1s ease-in-out;
-    
-    border-radius: 50%;
+#logo {
+  height: 200px;
+  transform: rotate(0deg);
+  transition: all 1s ease-in-out;
+
+  border-radius: 50%;
 }
 
-#logo:hover{
-    transform: rotate(11deg);
+#logo:hover {
+  transform: rotate(11deg);
 }
 
-#Title {
-    background: var(--headerColorSecond);
-    color: white;
-    border-radius: 86% 14% 81% 19% / 36% 72% 28% 64%;
-    font-size: 80pt;
-    margin-bottom: 15px;
-    font-family: 'Satisfy', cursive;
+/* #Title {
+  background: var(--headerColorSecond);
+  color: white;
+  border-radius: 86% 14% 81% 19% / 36% 72% 28% 64%;
+  font-size: 80pt;
+  margin-bottom: 15px;
+  font-family: "Satisfy", cursive;
+} */
+#navcontain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  transform: translateX(-210px) translateY(115px);
 
-
-}
-#navcontain{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    transform: translateX(-210px) translateY(115px);
-
-    /* border: solid 1pt red; */
+  /* border: solid 1pt red; */
 }
 
-#slogan {
-    color: gray;
-    font-style: italic;
-    font-size: 15pt;
-}
+/* #slogan {
+  color: gray;
+  font-style: italic;
+  font-size: 15pt;
+} */
 
 #daySelector {
-    color: white;
-    padding: 5px 10px;
-    background: var(--accent);
-    margin-top: 5px;
-    border: none;
-    border-radius: var(--UnivBorder);
-    font-size: 18pt;
-    transition: box-shadow .5s ease-in-out;
-    box-shadow: none;
+  color: white;
+  padding: 5px 10px;
+  background: var(--accent);
+  margin-top: 5px;
+  border: none;
+  border-radius: var(--UnivBorder);
+  font-size: 1rem;
+  transition: box-shadow 0.5s ease-in-out;
+  box-shadow: none;
 }
 
 #daySelector:active,
 #daySelector:hover {
-    box-shadow: 0 0 0 5px white;
+  box-shadow: 0 0 0 5px white;
 }
 
 .Day_BtnContain {
-    display: flex;
-    position: relative;
+  display: flex;
+  position: relative;
+  bottom: 30px;
 }
 
 #reset-btn {
-    margin-top: 5px;
-    background: var(--accent);
-    padding: 0 5px;
-    color: white;
-    border: none;
-    border-radius: var(--UnivBorder);
-    /* here */
-    font-weight: 500;
-    position: absolute;
-    display: inline-block;
-    font-size: 16pt;
-    height: 36px;
-    width: 35px;
-    transform: translateX(410px);
-    overflow: hidden;
-    transform-origin: right;
-    box-shadow: none;
-    transition: width .5s ease-in, box-shadow .5s ease-in;
+  margin-top: 5px;
+  background: var(--accent);
+  padding: 0 5px;
+  color: white;
+  border: none;
+  border-radius: var(--UnivBorder);
+  /* here */
+  font-weight: 500;
+  position: absolute;
+  display: inline-block;
+  /* font-size: 0.5rem; */
+  height: 32px;
+  width: 35px;
+  transform: translateX(410px);
+  overflow: hidden;
+  transform-origin: right;
+  box-shadow: none;
+  transition: width 0.5s ease-in, box-shadow 0.5s ease-in;
 }
 
 #Btn_text {
-    visibility: hidden;
-
+  visibility: hidden;
+  font-size: 1.25rem;
+  position: relative;
+  top: 2px;
+  left: 8px;
 }
 
 #reset-btn:hover #Btn_text {
-    visibility: visible;
+  visibility: visible;
 }
 
 #reset-btn:hover {
-    box-shadow: 0 0 0 5px white;
-    width: 165px;
+  box-shadow: 0 0 0 5px white;
+  width: 165px;
 }
 
 .material-symbols-outlined {
-    display: flex;
-    margin-left: 1px;
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 48
+  display: flex;
+  margin-left: 1px;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
 }
 
-
 #Container_Main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: var(--MainContainHeight);
-    margin: 0 auto;
-    margin-bottom: 30px;
-    margin-top: 30px;
-    width: 2000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* height: var(--MainContainHeight); */
+  margin: 0 auto;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  width: 90%;
 }
 
 .cardContainer {
-    display: flex;
-    flex-direction: column;
-    border-radius: calc(2 * var(--UnivBorder));
-    overflow: hidden;
-    background-color: var(--BGColo);
-
+  display: flex;
+  flex-direction: column;
+  border-radius: calc(2 * var(--UnivBorder));
+  overflow: hidden;
+  background-color: var(--BGColo);
 }
 
 #Area_input {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 40%;
-    margin-right: 30px;
-    box-shadow: 0px 0px 15px darkgray;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 40%;
+  /* min-width: 325px; */
+  margin-right: 10px;
+  box-shadow: 0px 0px 15px darkgray;
 }
 
 #CardTitleArea {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 20%;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    padding: 10px 0;
-    background-color: var(--headerColor);
-    box-shadow: 0px 0px 15px darkgray;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 20%;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding: 10px 0;
+  background-color: var(--headerColor);
+  box-shadow: 0px 0px 15px darkgray;
 }
 
 .cardtitlestyle {
-    font-family: 'Satisfy', cursive;
-    font-size: 36pt;
-    font-weight: 800;
-
+  font-family: 'Satisfy', cursive;
+  font-size: 2rem;
+  font-weight: 800;
 }
 
 .inputSection {
-    display: flex;
-    align-items: center;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 #sectionArea {
-    justify-content: center;
-    width: 70%;
+  justify-content: center;
+  width: 70%;
 
-    display: flex;
-    height: 80%;
-    /* border: solid 1pt red; */
+  display: flex;
+  height: 80%;
+  /* border: solid 1pt red; */
 }
 
 #inputTextArea {
-    /* background-color: var(--accent); */
-    color: black;
-    font-size: 26pt;
-    border-radius: var(--UnivBorder);
-    border: none;
-    padding: 15px;
-    box-shadow: 0px 0px 15px darkgray;
+  /* background-color: var(--accent); */
+  color: black;
+  font-size: 1.5rem;
+  border-radius: var(--UnivBorder);
+  border: none;
+  padding: 15px;
+  box-shadow: 0px 0px 15px darkgray;
+  height: 100%;
+  width: 100%;
 }
 
 #buttonArea {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    /* border: solid 1pt blue;  */
-    height: 100%;
-    width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  /* border: solid 1pt blue;  */
+  height: 100%;
+  width: 30%;
 }
 
 button {
-    cursor: pointer;
-    width: 150px;
-    height: 80px;
-    border: none;
-    border-radius: var(--UnivBorder);
-    box-shadow: 0px 0px 15px darkgray;
-    font-size: 20pt;
-    font-weight: 650;
+  cursor: pointer;
+  width: 6rem;
+  height: 80px;
+  border: none;
+  border-radius: var(--UnivBorder);
+  box-shadow: 0px 0px 15px darkgray;
+  font-size: 1.25rem;
+  font-weight: 650;
 }
 
 button:hover {
-    background-color: #fca264;
-    border: solid 3pt var(--accent);
-
+  background-color: #fca264;
+  border: solid 3pt var(--accent);
 }
 
-
-
 #breakfastbtn {
-    background-color: var(--color1);
+  background-color: var(--color1);
 }
 
 #lunchbtn {
-    background-color: var(--color2);
-
+  background-color: var(--color2);
 }
 
 #dinnerbtn {
-    background-color: var(--color3);
-
+  background-color: var(--color3);
 }
 
 #NutritionInfo {
-    display: flex;
-    height: 100%;
-    width: 60%;
-    box-shadow: 0px 0px 15px 0px darkgray;
+  display: flex;
+  height: 100%;
+  /* width: 60%; */
+  box-shadow: 0px 0px 15px 0px darkgray;
 }
 
 .nutritionContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 #CalContain,
 #infoContain1,
 #infoContain2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* border: solid red ; */
-    height: 100%;
-    width: calc(100% / 3);
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border: solid red ; */
+  height: 100%;
+  /* width: calc(100% / 3); */
 }
 
 #CalContain {
-    font-size: 38pt;
-    font-weight: 700;
-    margin: auto 10px;
-    border-right: solid #81818168 1pt;
-}
-
-
-#NutrTitle,
-#calories {
-    border-bottom: solid 10pt #81818168;
-}
-
-.Ingredients {
-    color: #4c4c4c;
-    font-size: 20pt;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: auto 10px;
+  border-right: solid #81818168 1pt;
+  flex: 1;
 }
 
 #infoContain1 {
-    font-size: 20pt;
-    margin-left: 5px;
-    border-right: solid #81818168 1pt;
+  font-size: 1.25rem;
+  margin-left: 5px;
+  border-right: solid #81818168 1pt;
+  flex: 2;
+}
+
+#infoContain2 {
+  display: flex;
+  width: calc(100% / 3);
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex: 1;
+}
+
+#NutrTitle,
+#calories {
+  border-bottom: solid 10pt #81818168;
+}
+
+.Ingredients {
+  color: #4c4c4c;
+  font-size: 1.5rem;
 }
 
 .nutLable_bold {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .nutLable_reg {
-    margin-left: 50px;
-}
-
-#infoContian2 {
-    display: flex;
-    width: calc(100% /3);
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-
-
-
+  margin-left: 50px;
 }
 
 /* #piewhole,
 #piewhole::after {
-    margin: 0 auto;
-    height: 300px;
-    width: 300px;
-    border-radius: 50%;
-    box-shadow: inset 0px 0px 30px 5px gray;
-    background-color: var(--headerColor);
+  margin: 0 auto;
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  box-shadow: inset 0px 0px 30px 5px gray;
+  background-color: var(--headerColor);
 }
 
 #pieRepresintation {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: conic-gradient(var(--headerColorSecond) 23%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0));
-    border-radius: 50%;
-    box-shadow: 0px 0px 15px 1px gray;  
-    transition: all 1s ease-in-out;
-    
-
-
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: conic-gradient(var(--headerColorSecond) 23%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0));
+  border-radius: 50%;
+  box-shadow: 0px 0px 15px 1px gray;  
+  transition: all 1s ease-in-out;
+  
+  
+  
 } */
 
 .chartBox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #PieChart {
-    position: absolute;
-    /* border: solid 1pt red; */
+  position: absolute;
+  /* border: solid 1pt red; */
 
-    border-radius: 50%;
-    box-shadow: 0px 0px 15px 5px lightgray;
+  border-radius: 50%;
+  box-shadow: 0px 0px 15px 5px lightgray;
 }
 
-
-
-
 #descOftool {
-    position: absolute;
-    display: flex;
-    opacity: 0;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background: none;
-    z-index: 100;
-    transition: all .1 ease-in-out;
-
+  position: absolute;
+  display: flex;
+  opacity: 0;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: none;
+  z-index: 100;
+  transition: all 0.1 ease-in-out;
 }
 
 .PieChartBox {
-    height: 300px;
-    width: 300px;
+  height: 150px;
+  width: 150px;
 }
 
-#pieToolTip {
-    font-size: 20pt;
-    font-weight: 800;
-    color: var(--accent);
-    margin: auto;
-}
+/* #pieToolTip {
+  font-size: 20pt;
+  font-weight: 800;
+  color: var(--accent);
+  margin: auto;
+} */
 
 #descOftool:hover {
-    /* background: rgba(227, 227, 227, 0.671); */
-    cursor: help;
-    opacity: 1;
+  /* background: rgba(227, 227, 227, 0.671); */
+  cursor: help;
+  opacity: 1;
 }
 
 #weekSchedule {
-    display: flex;
-    justify-content: space-between;
-    height: 300px;
-    width: 2000px;
-    margin: 0 auto;
-    margin-bottom: 30px;
-
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 30px;
 }
 
 .daysContainBox {
-    background: var(--BGColo);
-    height: 100%;
-    width: 14%;
-    border-radius: var(--UnivBorder);
-    overflow: hidden;
-    font-size: 26pt;
-    box-shadow: 0px 0px 15px 0px darkgray;
-
+  background: var(--BGColo);
+  height: 75%;
+  width: 175px;
+  border-radius: var(--UnivBorder);
+  overflow: hidden;
+  font-size: 1.5rem;
+  box-shadow: 0px 0px 15px 0px darkgray;
 }
 
 .TitleHead {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 23pt;
-    background-color: var(--headerColor);
-    padding-top: 10px;
-    box-shadow: 0px 0px 15px darkgray;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background-color: var(--headerColor);
+  padding-top: 10px;
+  box-shadow: 0px 0px 15px darkgray;
 }
 
 .mealsContain {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 50%;
 }
 
 .meal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: calc(100% / 3);
-    height: 100%;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100% / 3);
+  height: 100%;
 }
 
 .dayMealTitle {
-    padding-bottom: 5px;
-    background-color: #cff0e5;
-    /* border-bottom: solid 1pt black; */
-    /* font-weight: 600; */
+  padding-bottom: 5px;
+  background-color: #cff0e5;
+  /* border-bottom: solid 1pt black; */
+  /* font-weight: 600; */
 
-    /* background-color: var(--headerColor); */
-    text-align: center;
-    width: 100%;
+  /* background-color: var(--headerColor); */
+  text-align: center;
+  width: 100%;
 }
 
 .mealcalContainer {
-    border-left: solid 1.5pt var(--headerColorSecond);
-    border-right: solid 1.5pt var(--headerColorSecond);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+  border-left: solid 1.5pt var(--headerColorSecond);
+  border-right: solid 1.5pt var(--headerColorSecond);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .mealtotal {
-    text-align: center;
-    /* border: solid 3pt var(--accent); */
-
-
-
+  text-align: center;
+  /* border: solid 3pt var(--accent); */
 }
 
 .tolalCals {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    border-radius: var(--UnivBorder);
-    width: 60%;
-    background: rgba(48, 244, 71, 0.255);
-    transition: background 1s ease-in-out;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  border-radius: var(--UnivBorder);
+  width: 60%;
+  background: rgba(48, 244, 71, 0.255);
+  transition: background 1s ease-in-out;
 
-    margin: 0 auto;
-
+  margin: 0 auto;
 }
 
 .totalunits {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
-
-
-
 #lineGraph {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    border-radius: calc(2 * var(--UnivBorder));
-    width: 2000px;
-    height: 300px;
-    overflow: hidden;
-    /* border: solid 10pt red; */
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  border-radius: calc(2 * var(--UnivBorder));
+  width: 90%;
+  height: 90%;
+  overflow: hidden;
+  /* border: solid 10pt red; */
+}
 
+@media (max-width: 800px) {
+  #Container_Main {
+    flex-direction: column;
+  }
+  #Area_input {
+    margin-right: 0px;
+    margin-bottom: 10px;
+    width: 90%;
+  }
+  #NutritionInfo {
+    width: 90%;
+  }
+  #CalContain,
+  #infoContain1 {
+    width: 90%;
+  }
+}
+
+@media (max-width: 575px) {
+  .nutritionContainer {
+    flex-direction: column;
+  }
+  #CalContain,
+  #infoContain1 {
+    border-bottom: solid #81818168 1pt;
+    border-right: hidden;
+  }
+  #weekSchedule {
+    flex-direction: column;
+  }
+  .daysContainBox {
+    width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .Day_BtnContain {
+    bottom: -10px;
+    right: 150px;
+  }
+  #daySelector {
+    position: relative;
+    left: 280px;
+  }
 }
